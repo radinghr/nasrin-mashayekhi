@@ -1,0 +1,66 @@
+{
+  "nav": {
+    "home": "Home",
+    "gallery": "Gallery",
+    "courses": "Courses",
+    "toggleTheme": "Toggle theme",
+    "toggleLanguage": "فارسی"
+  },
+  "home": {
+    "heroGreeting": "Hello, I'm Nasrin — a Watercolor Artist & Instructor",
+    "heroParagraph1": "Watercolor is more than just a painting technique to me; it is a way of seeing the world with greater sensitivity, calmness, and creativity. Years of creating watercolor artworks and teaching this beautiful medium have shown me that learning to paint depends not only on talent, but also on proper guidance, purposeful practice, and enjoying the creative journey itself.",
+    "heroParagraph2": "I believe that with the right instruction and dedication, anyone can develop their artistic abilities and discover the joy of working with the luminous colors and delicate beauty of watercolor. That is why I have designed my courses in a simple, practical, and step-by-step format, allowing students of all levels to build their skills with confidence.",
+    "heroParagraph3": "My goal is not only to teach techniques, but also to help you nurture your creativity, strengthen your artistic confidence, and experience the satisfaction of creating artworks that reflect your unique vision of the world.",
+    "bioHeading": "About Nasrin",
+    "bioName": "Nasrin Mashayekhi",
+    "bioBirth": "Born in Tehran, 1984",
+    "bioParagraph": "As long as I remember, I loved to be an artist. My journey started 22 years ago in high school and I am still a student of art. Every day I try to experience something new, and I believe that",
+    "bioQuote": "\"Art is longing. You never arrive, but you keep going in the hope that you will.\"",
+    "bioQuoteAuthor": "— Anselm Kiefer",
+    "educationHeading": "Education",
+    "edu1": "Bachelor of Art (Illustration), University of Karaj, 2012",
+    "edu2": "Master of Art (Visual Communications), University of Tehran, 2017",
+    "activitiesHeading": "Art Activities",
+    "activity1": "2021 — Group Painting Exhibition, Davoodi Gallery, Tehran, Iran",
+    "activity2": "2021 — Group Visual Art Exhibition, Entezami Gallery, Tehran, Iran",
+    "activity3": "2022 — 2nd Watercolorist Exhibition, Saba Art Gallery, Tehran, Iran"
+  },
+  "gallery": {
+    "pageTitle": "Art Gallery",
+    "filterLabel": "Filter by category:",
+    "allCategories": "All",
+    "prev": "Previous",
+    "next": "Next",
+    "pageOf": "{{current}} / {{total}}",
+    "closeModal": "Close",
+    "noImages": "No images in this category.",
+    "loading": "Loading gallery…"
+  },
+  "courses": {
+    "pageTitle": "Courses",
+    "duration": "Duration",
+    "price": "Price",
+    "level": "Level",
+    "enrollButton": "Contact to Enroll",
+    "emailSubject": "Course Inquiry – {{title}}",
+    "emailBody": "Hello,\n\nI am interested in enrolling in the \"{{title}}\" course and would like more information about upcoming sessions, prerequisites, and payment details.\n\nThank you.",
+    "contactHeading": "Get in Touch",
+    "contactSubtext": "For inquiries, feel free to reach out",
+    "generalEmailSubject": "General Inquiry",
+    "generalEmailBody": "Hello,\n\nI would like to get in touch regarding your courses and services.\n\nThank you.",
+    "loading": "Loading courses…",
+    "noCourses": "No courses available at the moment."
+  },
+  "footer": {
+    "copyright": "© {{year}} Nasrin Mashayekhi. All rights reserved. Reproduction of artworks without written consent is strictly prohibited.",
+    "contact": "Contact"
+  },
+  "contact": {
+    "phone": "+98 912 505 0989",
+    "email": "radiingh@gmail.com"
+  },
+  "theme": {
+    "dark": "Dark",
+    "light": "Light"
+  }
+}

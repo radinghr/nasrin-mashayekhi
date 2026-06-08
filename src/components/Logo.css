@@ -1,0 +1,33 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo__text {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: var(--color-text-primary);
+  white-space: nowrap;
+  transition: color var(--transition-fast);
+}
+
+.logo:hover .logo__text,
+.logo:focus-visible .logo__text {
+  color: var(--color-accent);
+}
+
+/* If an image is used instead of text */
+.logo__img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+html[lang="fa"] .logo__text {
+  font-family: var(--font-persian);
+  letter-spacing: 0;
+}
