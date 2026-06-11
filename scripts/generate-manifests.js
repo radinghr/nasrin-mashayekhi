@@ -5,6 +5,15 @@
  *
  * Run:  npm run generate-manifests
  * Also runs automatically before every build via the package.json "build" script.
+ *
+ * Gallery folder structure expected:
+ *   public/art-gallery/
+ *     [category-slug]/
+ *       metadata.json          ← category-level metadata (always present)
+ *       [artwork-slug]/
+ *         image.jpg            ← full-resolution image (required)
+ *         thumbnail.jpg        ← optional thumbnail
+ *         metadata.json        ← optional per-artwork metadata
  */
 
 import fs from 'fs'
@@ -13,8 +22,6 @@ import { fileURLToPath } from 'url'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const publicDir = path.resolve(__dirname, '../public')
-
-const IMAGE_EXTENSIONS = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.avif'])
 
 // ---------------------------------------------------------------------------
 // Art Gallery Manifest
@@ -28,17 +35,39 @@ if (fs.existsSync(galleryDir)) {
   const entries = fs.readdirSync(galleryDir, { withFileTypes: true })
   for (const entry of entries) {
     if (!entry.isDirectory()) continue
-    const categoryPath = path.join(galleryDir, entry.name)
-    const images = fs
-      .readdirSync(categoryPath)
-      .filter((f) => IMAGE_EXTENSIONS.has(path.extname(f).toLowerCase()))
-      .sort()
-    categories.push({ name: entry.name, images })
+
+    const categorySlug = entry.name
+    const categoryPath = path.join(galleryDir, categorySlug)
+
+    // Scan artwork subdirectories
+    const artworks = []
+    const artworkEntries = fs.readdirSync(categoryPath, { withFileTypes: true })
+    for (const artworkEntry of artworkEntries) {
+      if (!artworkEntry.isDirectory()) continue
+      const artworkSlug = artworkEntry.name
+      const artworkPath = path.join(categoryPath, artworkSlug)
+
+      const hasThumbnail = fs.existsSync(path.join(artworkPath, 'thumbnail.jpg'))
+      const hasMetadata  = fs.existsSync(path.join(artworkPath, 'metadata.json'))
+
+      artworks.push({ slug: artworkSlug, hasThumbnail, hasMetadata })
+    }
+
+    artworks.sort((a, b) => a.slug.localeCompare(b.slug))
+
+    categories.push({
+      slug: categorySlug,
+      metadataFile: 'metadata.json',
+      artworks,
+    })
   }
+
+  categories.sort((a, b) => a.slug.localeCompare(b.slug))
 }
 
 fs.writeFileSync(galleryManifestPath, JSON.stringify({ categories }, null, 2))
-console.log(`[manifests] art-gallery-manifest.json — ${categories.length} category(ies)`)
+const totalArtworks = categories.reduce((n, c) => n + c.artworks.length, 0)
+console.log(`[manifests] art-gallery-manifest.json — ${categories.length} category(ies), ${totalArtworks} artwork(s)`)
 
 // ---------------------------------------------------------------------------
 // Courses Manifest

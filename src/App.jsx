@@ -7,6 +7,7 @@ import Home from './pages/Home'
 import Gallery from './pages/Gallery'
 import Courses from './pages/Courses'
 import { LANGUAGES } from './components/LanguageToggle'
+import { ContactProvider } from './context/ContactContext'
 
 function getInitialTheme() {
   const stored = localStorage.getItem('theme')
@@ -38,7 +39,7 @@ export default function App() {
   }
 
   return (
-    <>
+    <ContactProvider>
       <a href="#main-content" className="visually-hidden">Skip to content</a>
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
       <Routes>
@@ -47,6 +48,6 @@ export default function App() {
         <Route path="/courses" element={<Courses />} />
       </Routes>
       <Footer />
-    </>
+    </ContactProvider>
   )
 }

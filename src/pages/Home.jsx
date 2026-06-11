@@ -1,8 +1,16 @@
+import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import './Home.css'
 
 export default function Home() {
   const { t } = useTranslation()
+
+  useEffect(() => {
+    if (window.location.hash === '#about') {
+      const el = document.getElementById('about')
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [])
 
   return (
     <main className="page home-page" id="main-content">
@@ -23,7 +31,7 @@ export default function Home() {
         <hr className="divider" />
 
         {/* ---- Bio ---- */}
-        <section className="section home-bio" aria-labelledby="bio-heading">
+        <section id="about" className="section home-bio" aria-labelledby="bio-heading">
           <h2 id="bio-heading" className="section-heading">{t('home.bioHeading')}</h2>
 
           <div className="home-bio__header">

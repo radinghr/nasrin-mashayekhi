@@ -1,28 +1,44 @@
 import { useTranslation } from 'react-i18next'
+import { useContact } from '../context/ContactContext'
 import './Footer.css'
 
 export default function Footer() {
   const { t } = useTranslation()
+  const contact = useContact()
   const year = new Date().getFullYear()
-  const phone = t('contact.phone')
-  const email = t('contact.email')
 
-  const genericMailto = `mailto:${email}?subject=${encodeURIComponent(t('courses.generalEmailSubject'))}&body=${encodeURIComponent(t('courses.generalEmailBody'))}`
-  const telHref = `tel:+989125050989`
+  const phone = contact?.phone ?? ''
+  const email = contact?.email ?? ''
+  const instagram = contact?.instagram ?? ''
+
+  const genericMailto = email
+    ? `mailto:${email}?subject=${encodeURIComponent(t('courses.generalEmailSubject'))}&body=${encodeURIComponent(t('courses.generalEmailBody'))}`
+    : '#'
+  const telHref = phone ? `tel:${phone.replace(/\s/g, '')}` : '#'
 
   return (
     <footer className="footer" role="contentinfo">
       <div className="footer__inner container">
         <div className="footer__contact">
           <span className="footer__contact-label">{t('footer.contact')}</span>
-          <a href={telHref} className="footer__link">
-            <PhoneIcon />
-            <span dir="ltr">{phone}</span>
-          </a>
-          <a href={genericMailto} className="footer__link">
-            <EmailIcon />
-            <span>{email}</span>
-          </a>
+          {phone && (
+            <a href={telHref} className="footer__link">
+              <PhoneIcon />
+              <span dir="ltr">{phone}</span>
+            </a>
+          )}
+          {email && (
+            <a href={genericMailto} className="footer__link">
+              <EmailIcon />
+              <span>{email}</span>
+            </a>
+          )}
+          {instagram && (
+            <a href={`https://www.instagram.com/${instagram}`} className="footer__link" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon />
+              <span>{instagram}</span>
+            </a>
+          )}
         </div>
 
         <p className="footer__copyright">
@@ -46,6 +62,16 @@ function EmailIcon() {
     <svg viewBox="0 0 24 24" className="footer__icon" aria-hidden="true">
       <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
       <polyline points="22,6 12,13 2,6" />
+    </svg>
+  )
+}
+
+function InstagramIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="footer__icon" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
     </svg>
   )
 }

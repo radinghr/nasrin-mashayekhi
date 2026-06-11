@@ -81,6 +81,40 @@ html[lang="fa"] .nav-link {
   font-size: 0.95rem;
 }
 
+/* Button-style nav link (for Contact Me trigger) */
+.nav-link--button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: var(--space-1) var(--space-2);
+}
+
+.mobile-nav-link--button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  width: 100%;
+  text-align: start;
+  display: block;
+  color: var(--color-accent);
+  font-family: var(--font-ui);
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  padding: var(--space-3) var(--space-2);
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast);
+}
+
+.mobile-nav-link--button:hover {
+  color: var(--color-accent-hover);
+}
+
+html[lang="fa"] .mobile-nav-link--button {
+  font-family: var(--font-persian);
+  letter-spacing: 0;
+}
+
 /* ---- Controls ----------------------------------------------- */
 .navbar__controls {
   display: flex;

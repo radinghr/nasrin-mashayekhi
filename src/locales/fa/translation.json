@@ -3,6 +3,8 @@
     "home": "خانه",
     "gallery": "گالری",
     "courses": "دوره‌ها",
+    "aboutMe": "درباره من",
+    "contactMe": "تماس با من",
     "toggleTheme": "تغییر پوسته",
     "toggleLanguage": "English"
   },
@@ -43,7 +45,7 @@
     "level": "سطح",
     "enrollButton": "تماس برای ثبت‌نام",
     "emailSubject": "استعلام دوره – {{title}}",
-    "emailBody": "سلام،\n\nمتقاضی شرکت در دوره «{{title}}» هستم و مایلم اطلاعات بیشتری درباره جلسات، پیش‌نیازها و نحوه پرداخت دریافت کنم.\n\nممنون.",
+    "emailBody": "سلام، مایلم در دوره {{title}} ثبت‌نام کنم. لطفاً اطلاعات بیشتری در اختیارم قرار دهید.",
     "contactHeading": "تماس با ما",
     "contactSubtext": "برای هرگونه استعلام، آزادانه با ما در تماس باشید",
     "generalEmailSubject": "استعلام عمومی",
@@ -56,8 +58,12 @@
     "contact": "تماس"
   },
   "contact": {
-    "phone": "۰۹۱۲ ۵۰۵ ۰۹۸۹",
-    "email": "radiingh@gmail.com"
+    "title": "تماس با من",
+    "email": "ایمیل",
+    "phone": "تلفن",
+    "whatsapp": "واتساپ",
+    "instagram": "اینستاگرام",
+    "close": "بستن"
   },
   "theme": {
     "dark": "تاریک",

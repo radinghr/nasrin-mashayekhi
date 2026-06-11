@@ -1,99 +1,369 @@
 {
   "categories": [
     {
-      "name": "Animals",
-      "images": [
-        "A-01.jpg",
-        "A-02.jpg",
-        "A-03.jpg"
+      "slug": "animals",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "a-01",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "a-02",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "a-03",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     },
     {
-      "name": "Flowers",
-      "images": [
-        "F-01.jpg",
-        "F-02.jpg",
-        "F-03.jpg",
-        "F-04.jpg",
-        "F-05.jpg",
-        "F-06.jpg"
+      "slug": "flowers",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "f-01",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "f-02",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "f-03",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "f-04",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "f-05",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "f-06",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     },
     {
-      "name": "Landscapes",
-      "images": [
-        "O-01.jpg",
-        "O-02.jpg",
-        "O-03.jpg",
-        "O-04.jpg",
-        "O-05.jpg",
-        "O-06.jpg",
-        "O-07.jpg",
-        "O-08.jpg",
-        "O-09.jpg",
-        "O-10.jpg",
-        "O-11.jpg",
-        "O-12.jpg",
-        "O-13.jpg",
-        "O-14.jpg",
-        "O-15.jpg",
-        "O-16.jpg",
-        "O-17.jpg",
-        "O-18.jpg"
+      "slug": "landscapes",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "o-01",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-02",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-03",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-04",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-05",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-06",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-07",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-08",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-09",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-10",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-11",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-12",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-13",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-14",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-15",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-16",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-17",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "o-18",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     },
     {
-      "name": "Pen and Ink",
-      "images": [
-        "PI-2.jpg",
-        "PI-3.jpg",
-        "PI-4.jpg",
-        "PI.jpg",
-        "uniform-V.jpg"
+      "slug": "pen-and-ink",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "pi",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "pi-2",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "pi-3",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "pi-4",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "uniform-v",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     },
     {
-      "name": "Still life",
-      "images": [
-        "SL-01.jpg",
-        "SL-02.jpg",
-        "SL-03.jpg",
-        "SL-04.jpg"
+      "slug": "still-life",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "sl-01",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "sl-02",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "sl-03",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "sl-04",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     },
     {
-      "name": "Street Scenes",
-      "images": [
-        "B-01.jpg",
-        "B-02.jpg",
-        "B-03.jpg",
-        "B-04.jpg",
-        "B-05.jpg",
-        "B-06.jpg",
-        "B-07.jpg",
-        "B-08.jpg",
-        "B-09.jpg",
-        "B-10.jpg",
-        "B-11.jpg",
-        "B-12.jpg",
-        "B-13.jpg",
-        "B-14.jpg",
-        "B-15.jpg",
-        "B-16.jpg",
-        "B-17.jpg",
-        "B-18.jpg",
-        "B-19.jpg",
-        "B-20.jpg",
-        "B-21.jpg",
-        "B-22.jpg",
-        "B-23.jpg",
-        "B-24.jpg",
-        "B-25.jpg",
-        "B-26.jpg",
-        "B-27.jpg",
-        "B-28.jpg",
-        "B-29.jpg",
-        "B-30.jpg"
+      "slug": "street-scenes",
+      "metadataFile": "metadata.json",
+      "artworks": [
+        {
+          "slug": "b-01",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-02",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-03",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-04",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-05",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-06",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-07",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-08",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-09",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-10",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-11",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-12",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-13",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-14",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-15",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-16",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-17",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-18",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-19",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-20",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-21",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-22",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-23",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-24",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-25",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-26",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-27",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-28",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-29",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        },
+        {
+          "slug": "b-30",
+          "hasThumbnail": false,
+          "hasMetadata": false
+        }
       ]
     }
   ]

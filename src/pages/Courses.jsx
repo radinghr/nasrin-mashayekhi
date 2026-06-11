@@ -1,29 +1,29 @@
 import { useState, useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useManifest } from '../hooks/useManifest'
+import { useContact } from '../context/ContactContext'
 import './Courses.css'
 
 const BASE = import.meta.env.BASE_URL
 const MANIFEST_URL = `${BASE}courses-manifest.json`
 
-const EMAIL = 'radiingh@gmail.com'
-const PHONE_DISPLAY = '+98 912 505 0989'
-const PHONE_HREF = 'tel:+989125050989'
-
 export default function Courses() {
   const { t, i18n } = useTranslation()
   const { data, loading, error } = useManifest(MANIFEST_URL)
+  const contact = useContact()
   const lang = i18n.language?.slice(0, 2) || 'en'
 
   const courseNames = data?.courses ?? []
+  const email = contact?.email ?? ''
+  const phone = contact?.phone ?? ''
 
   if (loading) return <main className="page courses-page"><div className="container courses-loading">{t('courses.loading')}</div></main>
   if (error)   return <main className="page courses-page"><div className="container courses-error">{error}</div></main>
 
-  const genericMailto = buildMailto(EMAIL,
-    t('courses.generalEmailSubject'),
-    t('courses.generalEmailBody')
-  )
+  const genericMailto = email
+    ? buildMailto(email, t('courses.generalEmailSubject'), t('courses.generalEmailBody'))
+    : '#'
+  const telHref = phone ? `tel:${phone.replace(/\s/g, '')}` : '#'
 
   return (
     <main className="page courses-page" id="main-content">
@@ -35,7 +35,7 @@ export default function Courses() {
         ) : (
           <div className="courses-grid">
             {courseNames.map((name) => (
-              <CourseCard key={name} name={name} lang={lang} t={t} />
+              <CourseCard key={name} name={name} lang={lang} t={t} email={email} />
             ))}
           </div>
         )}
@@ -45,14 +45,18 @@ export default function Courses() {
           <h2 id="contact-heading" className="courses-contact__heading">{t('courses.contactHeading')}</h2>
           <p className="courses-contact__subtext">{t('courses.contactSubtext')}</p>
           <div className="courses-contact__links">
-            <a href={PHONE_HREF} className="courses-contact__link">
-              <PhoneIcon />
-              <span dir="ltr">{PHONE_DISPLAY}</span>
-            </a>
-            <a href={genericMailto} className="courses-contact__link">
-              <EmailIcon />
-              <span>{EMAIL}</span>
-            </a>
+            {phone && (
+              <a href={telHref} className="courses-contact__link">
+                <PhoneIcon />
+                <span dir="ltr">{phone}</span>
+              </a>
+            )}
+            {email && (
+              <a href={genericMailto} className="courses-contact__link">
+                <EmailIcon />
+                <span>{email}</span>
+              </a>
+            )}
           </div>
         </section>
 
@@ -62,7 +66,7 @@ export default function Courses() {
 }
 
 /* ---- Individual course card ---------------------------------- */
-function CourseCard({ name, lang, t }) {
+function CourseCard({ name, lang, t, email }) {
   const [info, setInfo] = useState(null)
   const [loadErr, setLoadErr] = useState(false)
 
@@ -85,11 +89,13 @@ function CourseCard({ name, lang, t }) {
   const { course_title, course_information, duration, price, level } = localized
 
   const imgSrc = `${BASE}courses/${name}/course-image.jpg`
-  const mailto = buildMailto(
-    EMAIL,
-    t('courses.emailSubject', { title: course_title }),
-    t('courses.emailBody', { title: course_title })
-  )
+  const mailto = email
+    ? buildMailto(
+        email,
+        t('courses.emailSubject', { title: course_title }),
+        t('courses.emailBody', { title: course_title })
+      )
+    : '#'
 
   return (
     <article className="card course-card">

@@ -43,7 +43,21 @@ html[lang="fa"] .gallery-filter__label {
   gap: var(--space-2);
 }
 
-/* ---- Category heading --------------------------------------- */
+/* ---- Category card ------------------------------------------ */
+.gallery-category-card {
+  background: var(--color-bg-card);
+  border: 1px solid rgba(201, 160, 144, 0.2);
+  border-radius: 1rem;
+  padding: var(--space-6);
+  box-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
+  margin-bottom: var(--space-7);
+}
+
+[data-theme="light"] .gallery-category-card {
+  border-color: rgba(160, 96, 80, 0.15);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
 .gallery-category__heading {
   text-transform: capitalize;
 }
@@ -143,9 +157,9 @@ html[lang="fa"] .gallery-filter__label {
 .gallery-pagination {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-4);
   margin-top: var(--space-4);
-  margin-bottom: var(--space-2);
 }
 
 .gallery-pagination__btn {
@@ -170,18 +184,17 @@ html[lang="fa"] .gallery-filter__label {
   flex-shrink: 0;
 }
 
-/* RTL: flip chevrons */
-html[dir="rtl"] .gallery-pagination__chevron {
-  transform: scaleX(-1) !important;
-}
-/* But the "end" chevron should be un-flipped in RTL */
-html[dir="rtl"] .gallery-pagination__chevron[style*="none"] {
-  transform: scaleX(1) !important;
-}
-
 .gallery-pagination__info {
   font-size: 0.875rem;
   color: var(--color-text-muted);
   min-width: 60px;
   text-align: center;
+}
+
+/* ---- Responsive cards --------------------------------------- */
+@media (max-width: 768px) {
+  .gallery-category-card {
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+  }
 }

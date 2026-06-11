@@ -69,10 +69,10 @@
    Typography tokens
    ============================================================ */
 :root {
-  --font-heading:  'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-body:     'Cormorant Garamond', 'Playfair Display', Georgia, serif;
-  --font-persian:  'Vazirmatn', 'Tahoma', sans-serif;
-  --font-ui:       'Cormorant Garamond', system-ui, sans-serif;
+  --font-heading:  Arial, Helvetica, sans-serif;
+  --font-body:     Arial, Helvetica, sans-serif;
+  --font-persian:  'Yekan', 'Yekan Bakh', 'Tahoma', sans-serif;
+  --font-ui:       Arial, system-ui, sans-serif;
 
   /* Spacing scale */
   --space-1:   4px;

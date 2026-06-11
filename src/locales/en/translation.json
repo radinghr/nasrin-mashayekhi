@@ -3,6 +3,8 @@
     "home": "Home",
     "gallery": "Gallery",
     "courses": "Courses",
+    "aboutMe": "About Me",
+    "contactMe": "Contact Me",
     "toggleTheme": "Toggle theme",
     "toggleLanguage": "فارسی"
   },
@@ -43,7 +45,7 @@
     "level": "Level",
     "enrollButton": "Contact to Enroll",
     "emailSubject": "Course Inquiry – {{title}}",
-    "emailBody": "Hello,\n\nI am interested in enrolling in the \"{{title}}\" course and would like more information about upcoming sessions, prerequisites, and payment details.\n\nThank you.",
+    "emailBody": "Hello, I am interested in enrolling in the {{title}} course. Please provide me with more information.",
     "contactHeading": "Get in Touch",
     "contactSubtext": "For inquiries, feel free to reach out",
     "generalEmailSubject": "General Inquiry",
@@ -56,8 +58,12 @@
     "contact": "Contact"
   },
   "contact": {
-    "phone": "+98 912 505 0989",
-    "email": "radiingh@gmail.com"
+    "title": "Get in Touch",
+    "email": "Email",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "close": "Close"
   },
   "theme": {
     "dark": "Dark",

@@ -1,6 +1,6 @@
-# Nasrin Mashayekhi — Watercolor Artist Website
+# Nasrin Mashayekhi — Watercolor Artist Portfolio
 
-A production-ready, multilingual (English + Persian/RTL) portfolio website built with React, Vite, and i18next. Deployed to GitHub Pages.
+A production-ready, multilingual (English + Persian/RTL) portfolio website for watercolor artist and instructor Nasrin Mashayekhi. Built with React, Vite, and i18next. Deployed to GitHub Pages.
 
 ---
 
@@ -10,60 +10,63 @@ A production-ready, multilingual (English + Persian/RTL) portfolio website built
 # Install dependencies
 npm install
 
-# Generate manifest files (needed before first dev run)
+# Generate manifest files (required before first dev run)
 npm run generate-manifests
 
 # Start the dev server
 npm run dev
 ```
 
-The site will be available at `http://localhost:5173/nasrin-mashayekhi/`.
+The site runs at `http://localhost:5173/nasrin-mashayekhi/`.
+
+---
+
+## Updating Contact Information
+
+All contact details live in a single file:
+
+```
+public/contact.json
+```
+
+```json
+{
+  "email": "your@email.com",
+  "phone": "+989123456789",
+  "whatsapp": "+989123456789"
+}
+```
+
+Changing this file propagates everywhere automatically — the Footer, the Courses page, and the Contact modal all read from it at runtime. No code changes needed.
 
 ---
 
 ## Adding Gallery Images
 
-1. Drop your images (`.jpg`, `.jpeg`, `.png`, `.webp`) into the correct category folder under `public/art-gallery/`:
-   ```
-   public/art-gallery/florals/my-flower.jpg
-   public/art-gallery/landscapes/sunset.jpg
-   ```
-2. To create a new category, create a new folder:
-   ```
-   public/art-gallery/still-life/
-   ```
-3. Regenerate the manifest:
-   ```bash
-   npm run generate-manifests
-   ```
-4. The gallery will pick up the changes automatically on next page load.
+The gallery uses a nested folder structure:
 
----
+```
+public/art-gallery/
+  [category-slug]/
+    metadata.json          ← category name in EN + FA (required)
+    [artwork-slug]/
+      image.jpg            ← full-resolution image (required)
+      thumbnail.jpg        ← optional; shown in grid if present
+      metadata.json        ← optional; artwork title + description
+```
 
-## Adding a New Course
+### Adding a new artwork to an existing category
 
-1. Create a new folder under `public/courses/` using a slug as the name:
+1. Create a folder under the category:
    ```
-   public/courses/portrait-watercolor/
+   public/art-gallery/landscapes/my-painting/
    ```
-2. Add a course image as `course-image.jpg` inside that folder.
-3. Add a `course-info.json` with this structure:
+2. Drop `image.jpg` inside it. Optionally add `thumbnail.jpg`.
+3. Optionally add `metadata.json`:
    ```json
    {
-     "en": {
-       "course_title": "Portrait Watercolor",
-       "course_information": "Description in English…",
-       "duration": "20h",
-       "price": "200,000T",
-       "level": "Intermediate"
-     },
-     "fa": {
-       "course_title": "آبرنگ پرتره",
-       "course_information": "توضیحات به فارسی…",
-       "duration": "۲۰ ساعت",
-       "price": "۲۰۰،۰۰۰ تومان",
-       "level": "متوسط"
-     }
+     "en": { "title": "Morning Mist", "body": "A soft watercolor depicting..." },
+     "fa": { "title": "مه صبحگاهی", "body": "یک آبرنگ لطیف..." }
    }
    ```
 4. Regenerate the manifest:
@@ -71,73 +74,147 @@ The site will be available at `http://localhost:5173/nasrin-mashayekhi/`.
    npm run generate-manifests
    ```
 
+### Adding a new category
+
+1. Create the category folder (use a slug — lowercase, hyphens):
+   ```
+   public/art-gallery/portraits/
+   ```
+2. Add `metadata.json` inside it:
+   ```json
+   {
+     "en": { "name": "Portraits" },
+     "fa": { "name": "پرتره‌ها" }
+   }
+   ```
+3. Add artwork subfolders as above.
+4. Run `npm run generate-manifests`.
+
+### Current categories
+
+| Slug | English | Persian |
+|---|---|---|
+| `animals` | Animals | حیوانات |
+| `flowers` | Flowers | گل‌ها |
+| `landscapes` | Landscapes | طبیعت |
+| `pen-and-ink` | Pen and Ink | قلم و جوهر |
+| `still-life` | Still Life | طبیعت بی‌جان |
+| `street-scenes` | Street Scenes | صحنه‌های خیابانی |
+
+---
+
+## Adding a New Course
+
+1. Create a folder under `public/courses/` using a slug:
+   ```
+   public/courses/portrait-watercolor/
+   ```
+2. Add `course-image.jpg` (optional; hidden if missing).
+3. Add `course-info.json`:
+   ```json
+   {
+     "en": {
+       "course_title": "Portrait Watercolor",
+       "course_information": "Description…",
+       "duration": "20h",
+       "price": "200,000T",
+       "level": "Intermediate"
+     },
+     "fa": {
+       "course_title": "آبرنگ پرتره",
+       "course_information": "توضیحات…",
+       "duration": "۲۰ ساعت",
+       "price": "۲۰۰،۰۰۰ تومان",
+       "level": "متوسط"
+     }
+   }
+   ```
+4. Run `npm run generate-manifests`.
+
 ---
 
 ## Adding a New Language
 
-1. Create a translation file: `src/locales/[lang]/translation.json`
-   — copy `src/locales/en/translation.json` as a starting point and translate all values.
-
-2. Open `src/i18n.js` and add:
-   ```js
-   import de from './locales/de/translation.json'
-   // ...inside resources:
-   de: { translation: de },
-   // ...inside supportedLngs:
-   'de',
-   ```
-
-3. Open `src/components/LanguageToggle.jsx` and add the language to `LANGUAGES`:
+1. Create `src/locales/[lang]/translation.json` (copy EN as a starting point).
+2. In `src/i18n.js`, import the file and add it to `resources` and `supportedLngs`.
+3. In `src/components/LanguageToggle.jsx`, add the language to `LANGUAGES`:
    ```js
    de: { dir: 'ltr', label: 'DE' },
    ```
-
-4. Update the toggle logic in `LanguageToggle.jsx` if you want a cycle through more than two languages.
+4. Update the toggle logic in `LanguageToggle.jsx` if cycling through more than two.
 
 ---
 
 ## Deploying to GitHub Pages
 
-Make sure `vite.config.js` has the correct `base` matching your repository name:
+Ensure `vite.config.js` has the correct `base` matching the repository name:
 ```js
 base: '/nasrin-mashayekhi/',
 ```
 
-Then run:
+Then:
 ```bash
 npm run deploy
 ```
 
 This will:
 1. Regenerate manifests
-2. Build the production bundle (`dist/`)
-3. Push the `dist/` folder to the `gh-pages` branch
+2. Build the production bundle into `dist/`
+3. Push `dist/` to the `gh-pages` branch
 
-GitHub Pages will serve the site from that branch. Enable it in **Settings → Pages → Source → gh-pages branch**.
+Enable GitHub Pages in **Settings → Pages → Source → gh-pages branch**.
 
 ---
 
 ## Project Structure
 
 ```
-/public
-  /art-gallery/[category]/      ← place images here
-  /courses/[course-name]/       ← place course-image.jpg + course-info.json here
-  art-gallery-manifest.json     ← auto-generated
-  courses-manifest.json         ← auto-generated
+public/
+  contact.json                  ← contact info (email, phone, whatsapp)
+  art-gallery-manifest.json     ← auto-generated by generate-manifests.js
+  courses-manifest.json         ← auto-generated by generate-manifests.js
+  art-gallery/
+    [category-slug]/
+      metadata.json             ← { en: { name }, fa: { name } }
+      [artwork-slug]/
+        image.jpg               ← required
+        thumbnail.jpg           ← optional
+        metadata.json           ← optional { en/fa: { title, body } }
+  courses/
+    [course-slug]/
+      course-image.jpg
+      course-info.json
 
-/scripts
-  generate-manifests.js         ← scans public/ and writes manifests
+scripts/
+  generate-manifests.js         ← scans public/, writes manifests (run before build)
+  migrate-gallery.js            ← one-time migration script (already executed)
 
-/src
-  /components                   ← Navbar, Footer, Logo, ThemeToggle, LanguageToggle, Lightbox
-  /pages                        ← Home, Gallery, Courses
-  /locales/en|fa                ← translation files
-  /hooks                        ← useManifest.js
-  /styles                       ← global.css, variables.css
-  i18n.js                       ← i18next configuration
-  App.jsx                       ← router, theme state, lang/dir sync
-  main.jsx                      ← React root, BrowserRouter
+src/
+  context/
+    ContactContext.jsx          ← ContactProvider + useContact() hook
+  components/
+    Navbar.jsx / .css           ← fixed header, mobile hamburger, About Me, Contact Me
+    ContactModal.jsx / .css     ← Portal modal: email, phone, WhatsApp
+    Footer.jsx / .css
+    Lightbox.jsx / .css         ← Instagram-style: image + metadata panel + prev/next
+    Logo.jsx / .css
+    ThemeToggle.jsx / .css
+    LanguageToggle.jsx / .css
+  pages/
+    Home.jsx / .css             ← hero, bio (#about anchor), education, activities
+    Gallery.jsx / .css          ← category cards, pagination, lightbox
+    Courses.jsx / .css          ← course cards, enroll mailto
+  locales/
+    en/translation.json
+    fa/translation.json
+  hooks/
+    useManifest.js              ← generic JSON fetch hook
+  styles/
+    variables.css               ← all CSS custom properties (colors, fonts, spacing)
+    global.css                  ← reset, base styles, utility classes
+  i18n.js
+  App.jsx                       ← router, theme state, ContactProvider
+  main.jsx
 ```
 
 ---
@@ -146,8 +223,10 @@ GitHub Pages will serve the site from that branch. Enable it in **Settings → P
 
 | Tool | Purpose |
 |---|---|
-| React 19 + Vite | UI and build tooling |
+| React 19 + Vite 8 | UI framework and build tooling |
 | React Router v7 | Client-side routing |
 | i18next + react-i18next | EN / FA multilingual support |
 | CSS Variables | Dark / light theming — no CSS-in-JS |
 | gh-pages | GitHub Pages deployment |
+| Arial (system) | English body font |
+| Yekan (jsDelivr CDN) | Persian body font |

@@ -1,0 +1,167 @@
+.contact-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-5);
+  animation: contactModalIn var(--transition-base) ease both;
+}
+
+@keyframes contactModalIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.contact-modal__panel {
+  position: relative;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-modal);
+  padding: var(--space-7) var(--space-7) var(--space-6);
+  width: 100%;
+  max-width: 420px;
+  animation: contactPanelIn var(--transition-base) ease both;
+}
+
+@keyframes contactPanelIn {
+  from { transform: translateY(12px) scale(0.97); opacity: 0; }
+  to   { transform: translateY(0)    scale(1);    opacity: 1; }
+}
+
+.contact-modal__close {
+  position: absolute;
+  top: var(--space-4);
+  inset-inline-end: var(--space-4);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.contact-modal__close:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+.contact-modal__close svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+}
+
+.contact-modal__title {
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-6);
+}
+
+html[lang="fa"] .contact-modal__title {
+  font-family: var(--font-persian);
+}
+
+.contact-modal__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.contact-modal__item {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contact-modal__label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+}
+
+html[lang="fa"] .contact-modal__label {
+  font-family: var(--font-persian);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.contact-modal__email-link {
+  font-size: 0.95rem;
+  color: var(--color-accent);
+  word-break: break-all;
+  transition: color var(--transition-fast);
+}
+
+.contact-modal__email-link:hover {
+  color: var(--color-accent-hover);
+}
+
+.contact-modal__cta {
+  justify-content: center;
+}
+
+.contact-modal__whatsapp {
+  background: #25d366;
+  color: #fff;
+  border: none;
+  justify-content: center;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-modal__whatsapp:hover {
+  background: #1ebe5d;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.contact-modal__instagram {
+  background: #e1306c;
+  color: #fff;
+  border: none;
+  justify-content: center;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.contact-modal__instagram:hover {
+  background: #c9275f;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.contact-modal__icon {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.contact-modal__whatsapp .contact-modal__icon {
+  stroke: none;
+  fill: currentColor;
+}
+
+@media (max-width: 480px) {
+  .contact-modal__panel {
+    padding: var(--space-6) var(--space-5) var(--space-5);
+    border-radius: var(--radius-lg);
+  }
+}
