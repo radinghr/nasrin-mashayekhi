@@ -67,6 +67,24 @@ html[lang="fa"] .footer__contact-label {
   flex-shrink: 0;
 }
 
+.footer__email-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.footer__copied {
+  font-size: 0.7rem;
+  color: var(--color-accent);
+  animation: footerCopiedIn 0.2s ease both;
+}
+
+@keyframes footerCopiedIn {
+  from { opacity: 0; transform: translateY(-3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .footer__copyright {
   font-size: 0.8rem;
   color: var(--color-text-muted);

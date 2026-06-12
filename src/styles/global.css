@@ -6,7 +6,7 @@
 @import './variables.css';
 
 /* ---- Persian webfont (Yekan) ------------------------------- */
-@import url('https://cdn.jsdelivr.net/npm/@rastikerdar/yekan-font/dist/font-face.css');
+@import url('https://cdn.jsdelivr.net/gh/DediData/Yekan-Font@3.0/Yekan.css');
 
 /* ---- Reset --------------------------------------------------- */
 *,

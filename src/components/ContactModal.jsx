@@ -1,4 +1,4 @@
-import { useEffect, useCallback } from 'react'
+import { useEffect, useCallback, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import { useContact } from '../context/ContactContext'
@@ -26,11 +26,21 @@ export default function ContactModal({ onClose }) {
     if (e.target === e.currentTarget) onClose()
   }
 
+  const [emailCopied, setEmailCopied] = useState(false)
+
   const email = contact?.email ?? ''
   const phone = contact?.phone ?? ''
   const whatsappRaw = contact?.whatsapp ?? ''
   const instagramHandle = contact?.instagram ?? ''
   const whatsappNumber = whatsappRaw.replace(/[+\s]/g, '')
+
+  function handleEmailClick() {
+    if (!email) return
+    navigator.clipboard?.writeText(email).then(() => {
+      setEmailCopied(true)
+      setTimeout(() => setEmailCopied(false), 2000)
+    })
+  }
 
   const emailHref = email ? `mailto:${email}` : '#'
   const phoneHref = phone ? `tel:${phone.replace(/\s/g, '')}` : '#'
@@ -60,11 +70,14 @@ export default function ContactModal({ onClose }) {
         <h2 className="contact-modal__title">{t('contact.title')}</h2>
 
         <div className="contact-modal__items">
-          <div className="contact-modal__item">
+          <div className="contact-modal__item contact-modal__item--email">
             <span className="contact-modal__label">{t('contact.email')}</span>
-            <a href={emailHref} className="contact-modal__email-link">
+            <a href={emailHref} className="contact-modal__email-link" onClick={handleEmailClick}>
               {email}
             </a>
+            {emailCopied && (
+              <span className="contact-modal__copied">{t('contact.emailCopied')}</span>
+            )}
           </div>
 
           <div className="contact-modal__item">

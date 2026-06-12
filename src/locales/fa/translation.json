@@ -63,7 +63,8 @@
     "phone": "تلفن",
     "whatsapp": "واتساپ",
     "instagram": "اینستاگرام",
-    "close": "بستن"
+    "close": "بستن",
+    "emailCopied": "کپی شد!"
   },
   "theme": {
     "dark": "تاریک",

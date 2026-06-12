@@ -100,6 +100,22 @@ html[lang="fa"] .contact-modal__label {
   letter-spacing: 0;
 }
 
+.contact-modal__item--email {
+  align-items: center;
+  text-align: center;
+}
+
+.contact-modal__copied {
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  animation: copiedFadeIn 0.2s ease both;
+}
+
+@keyframes copiedFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
 .contact-modal__email-link {
   font-size: 0.95rem;
   color: var(--color-accent);

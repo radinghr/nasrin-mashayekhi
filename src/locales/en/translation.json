@@ -63,7 +63,8 @@
     "phone": "Phone",
     "whatsapp": "WhatsApp",
     "instagram": "Instagram",
-    "close": "Close"
+    "close": "Close",
+    "emailCopied": "Copied!"
   },
   "theme": {
     "dark": "Dark",

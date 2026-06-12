@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useContact } from '../context/ContactContext'
 import './Footer.css'
@@ -7,9 +8,19 @@ export default function Footer() {
   const contact = useContact()
   const year = new Date().getFullYear()
 
+  const [emailCopied, setEmailCopied] = useState(false)
+
   const phone = contact?.phone ?? ''
   const email = contact?.email ?? ''
   const instagram = contact?.instagram ?? ''
+
+  function handleEmailClick() {
+    if (!email) return
+    navigator.clipboard?.writeText(email).then(() => {
+      setEmailCopied(true)
+      setTimeout(() => setEmailCopied(false), 2000)
+    })
+  }
 
   const genericMailto = email
     ? `mailto:${email}?subject=${encodeURIComponent(t('courses.generalEmailSubject'))}&body=${encodeURIComponent(t('courses.generalEmailBody'))}`
@@ -28,10 +39,15 @@ export default function Footer() {
             </a>
           )}
           {email && (
-            <a href={genericMailto} className="footer__link">
-              <EmailIcon />
-              <span>{email}</span>
-            </a>
+            <span className="footer__email-wrap">
+              <a href={genericMailto} className="footer__link" onClick={handleEmailClick}>
+                <EmailIcon />
+                <span>{email}</span>
+              </a>
+              {emailCopied && (
+                <span className="footer__copied">{t('contact.emailCopied')}</span>
+              )}
+            </span>
           )}
           {instagram && (
             <a href={`https://www.instagram.com/${instagram}`} className="footer__link" target="_blank" rel="noopener noreferrer">
