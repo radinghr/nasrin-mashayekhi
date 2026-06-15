@@ -7,17 +7,17 @@
         {
           "slug": "a-01",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "a-02",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "a-03",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     },
@@ -28,32 +28,32 @@
         {
           "slug": "f-01",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "f-02",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "f-03",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "f-04",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "f-05",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "f-06",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     },
@@ -64,92 +64,92 @@
         {
           "slug": "o-01",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-02",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-03",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-04",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-05",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-06",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-07",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-08",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-09",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-10",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-11",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-12",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-13",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-14",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-15",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-16",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-17",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "o-18",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     },
@@ -160,27 +160,27 @@
         {
           "slug": "pi",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "pi-2",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "pi-3",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "pi-4",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "uniform-v",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     },
@@ -191,22 +191,22 @@
         {
           "slug": "sl-01",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "sl-02",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "sl-03",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "sl-04",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     },
@@ -217,152 +217,152 @@
         {
           "slug": "b-01",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-02",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-03",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-04",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-05",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-06",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-07",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-08",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-09",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-10",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-11",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-12",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-13",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-14",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-15",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-16",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-17",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-18",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-19",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-20",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-21",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-22",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-23",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-24",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-25",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-26",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-27",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-28",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-29",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         },
         {
           "slug": "b-30",
           "hasThumbnail": false,
-          "hasMetadata": false
+          "hasMetadata": true
         }
       ]
     }

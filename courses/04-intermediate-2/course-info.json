@@ -1,0 +1,22 @@
+{
+  "en": {
+    "course_title": "Intermediate Course 2",
+    "course_information": "This course includes 4 painting instructional videos.",
+    "duration": "4 Sessions",
+    "price": "On request",
+    "level": "Intermediate",
+    "bonus": "A separate video guiding you through purchasing the right tools.",
+    "access": "All videos are available to download as video files from the website.",
+    "support": "Painting corrections sent to the student via voice messages on WhatsApp."
+  },
+  "fa": {
+    "course_title": "دوره متوسط ۲",
+    "course_information": "این دوره شامل ۴ فیلم آموزشی نقاشی می‌باشد.",
+    "duration": "۴ جلسه",
+    "price": "بنا به درخواست",
+    "level": "متوسط",
+    "bonus": "فیلمی مجزا جهت خرید ابزارها ارائه می‌گردد.",
+    "access": "فیلم‌ها در قالب فایل‌های ویدیویی برای هنرآموز در سایت قابل دانلود می‌باشد.",
+    "support": "رفع اشکالات نقاشی‌ها از طریق ویس برای واتس‌اپ هنرآموز ارسال می‌شود."
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "en": {
+    "course_title": "Basic Color Course",
+    "course_information": "Includes 2 videos introducing warm and cool colors and how to create colors with a limited palette. Classes are held online virtually.",
+    "duration": "2 Sessions",
+    "price": "On request",
+    "level": "Elementary",
+    "access": "All videos are available to download as video files from the website.",
+    "support": "Painting corrections sent to the student via voice messages on WhatsApp."
+  },
+  "fa": {
+    "course_title": "دوره رنگ مقدماتی",
+    "course_information": "شامل ۲ فیلم آشنایی با رنگ‌های سرد و گرم و چگونگی ساخت رنگ‌ها با پالت محدود می‌باشد. کلاس‌های آموزشی به‌صورت مجازی می‌باشد.",
+    "duration": "۲ جلسه",
+    "price": "بنا به درخواست",
+    "level": "مقدماتی",
+    "access": "فیلم‌ها در قالب فایل‌های ویدیویی برای هنرآموز در سایت قابل دانلود می‌باشد.",
+    "support": "رفع اشکالات نقاشی‌ها از طریق ویس برای واتس‌اپ هنرآموز ارسال می‌شود."
+  }
+}

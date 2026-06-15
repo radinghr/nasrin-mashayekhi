@@ -1,0 +1,22 @@
+{
+  "en": {
+    "course_title": "Pre-Elementary Course",
+    "course_information": "This course includes 12 instructional videos covering an introduction to tools, paint density, and more.",
+    "duration": "12 Sessions",
+    "price": "On request",
+    "level": "Pre-Beginner",
+    "bonus": "A separate video guiding you through purchasing the right tools.",
+    "access": "All videos are available to download as video files from the website.",
+    "support": "Painting corrections sent to the student via voice messages on WhatsApp."
+  },
+  "fa": {
+    "course_title": "دوره پیش مقدماتی",
+    "course_information": "این دوره شامل ۱۲ فیلم آموزشی آشنایی با ابزارها و توضیحات غلظت رنگ‌ها و ... می‌باشد.",
+    "duration": "۱۲ جلسه",
+    "price": "بنا به درخواست",
+    "level": "پیش مقدماتی",
+    "bonus": "فیلمی مجزا جهت خرید ابزارها ارائه می‌گردد.",
+    "access": "فیلم‌ها در قالب فایل‌های ویدیویی برای هنرآموز در سایت قابل دانلود می‌باشد.",
+    "support": "رفع اشکالات نقاشی‌ها از طریق ویس برای واتس‌اپ هنرآموز ارسال می‌شود."
+  }
+}
