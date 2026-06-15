@@ -1,0 +1,20 @@
+{
+  "en": {
+    "course_title": "Advanced Course 1",
+    "course_information": "This course includes 4 painting instructional videos. Classes are held online virtually.",
+    "duration": "4 Sessions",
+    "price": "On request",
+    "level": "Advanced",
+    "access": "All videos are available to download as video files from the website.",
+    "support": "Painting corrections sent to the student via voice messages on WhatsApp."
+  },
+  "fa": {
+    "course_title": "دوره پیشرفته ۱",
+    "course_information": "این دوره شامل ۴ فیلم آموزشی نقاشی می‌باشد. کلاس‌های آموزشی به‌صورت مجازی می‌باشد.",
+    "duration": "۴ جلسه",
+    "price": "بنا به درخواست",
+    "level": "پیشرفته",
+    "access": "فیلم‌ها در قالب فایل‌های ویدیویی برای هنرآموز در سایت قابل دانلود می‌باشد.",
+    "support": "رفع اشکالات نقاشی‌ها از طریق ویس برای واتس‌اپ هنرآموز ارسال می‌شود."
+  }
+}

@@ -1,370 +1,370 @@
-{
-  "categories": [
-    {
-      "slug": "animals",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "a-01",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "a-02",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "a-03",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    },
-    {
-      "slug": "flowers",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "f-01",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "f-02",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "f-03",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "f-04",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "f-05",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "f-06",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    },
-    {
-      "slug": "landscapes",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "o-01",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-02",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-03",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-04",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-05",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-06",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-07",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-08",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-09",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-10",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-11",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-12",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-13",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-14",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-15",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-16",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-17",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "o-18",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    },
-    {
-      "slug": "pen-and-ink",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "pi",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "pi-2",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "pi-3",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "pi-4",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "uniform-v",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    },
-    {
-      "slug": "still-life",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "sl-01",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "sl-02",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "sl-03",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "sl-04",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    },
-    {
-      "slug": "street-scenes",
-      "metadataFile": "metadata.json",
-      "artworks": [
-        {
-          "slug": "b-01",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-02",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-03",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-04",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-05",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-06",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-07",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-08",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-09",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-10",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-11",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-12",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-13",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-14",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-15",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-16",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-17",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-18",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-19",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-20",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-21",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-22",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-23",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-24",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-25",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-26",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-27",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-28",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-29",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        },
-        {
-          "slug": "b-30",
-          "hasThumbnail": false,
-          "hasMetadata": false
-        }
-      ]
-    }
-  ]
+﻿{
+    "categories":  [
+                       {
+                           "slug":  "animals",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "a-01",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "a-02",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "a-03",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       },
+                       {
+                           "slug":  "flowers",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "f-01",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "f-02",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "f-03",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "f-04",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "f-05",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "f-06",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       },
+                       {
+                           "slug":  "landscapes",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "o-01",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-02",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-03",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-04",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-05",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-06",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-07",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-08",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-09",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-10",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-11",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-12",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-13",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-14",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-15",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-16",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-17",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "o-18",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       },
+                       {
+                           "slug":  "pen-and-ink",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "pi",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "pi-2",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "pi-3",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "pi-4",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "uniform-v",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       },
+                       {
+                           "slug":  "still-life",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "sl-01",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "sl-02",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "sl-03",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "sl-04",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       },
+                       {
+                           "slug":  "street-scenes",
+                           "metadataFile":  "metadata.json",
+                           "artworks":  [
+                                            {
+                                                "slug":  "b-01",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-02",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-03",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-04",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-05",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-06",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-07",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-08",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-09",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-10",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-11",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-12",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-13",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-14",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-15",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-16",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-17",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-18",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-19",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-20",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-21",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-22",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-23",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-24",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-25",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-26",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-27",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-28",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-29",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            },
+                                            {
+                                                "slug":  "b-30",
+                                                "hasThumbnail":  false,
+                                                "hasMetadata":  true
+                                            }
+                                        ]
+                       }
+                   ]
 }

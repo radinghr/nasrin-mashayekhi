@@ -1,6 +1,11 @@
 {
   "courses": [
-    "advanced-watercolor",
-    "watercolor-basics"
+    "01-pre-elementary",
+    "02-elementary",
+    "03-intermediate-1",
+    "04-intermediate-2",
+    "05-intermediate-3",
+    "06-advanced-1",
+    "07-basic-color"
   ]
 }
