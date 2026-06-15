@@ -1,31 +1,26 @@
-.lang-toggle {
+/* Lang toggle — styles live in Navbar.css as .toggle.lang-toggle.
+   This file keeps the standalone component styled for any out-of-nav usage. */
+.lang-toggle-standalone {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  height: 36px;
-  padding: 0 var(--space-3);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border-strong);
-  color: var(--color-text-secondary);
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  font-family: var(--font-ui);
-  transition: color var(--transition-fast), background-color var(--transition-fast),
-              border-color var(--transition-fast);
+  gap: 7px;
+  min-height: 34px;
+  padding: 7px 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 11.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color 280ms var(--ease);
 }
 
-.lang-toggle:hover,
-.lang-toggle:focus-visible {
-  color: var(--color-accent);
-  border-color: var(--color-accent);
-  background-color: var(--color-accent-subtle);
-}
+.lang-toggle-standalone:hover { color: var(--ink); }
 
-/* Show Vazirmatn label in Persian context */
-html[lang="fa"] .lang-toggle {
-  font-family: var(--font-persian);
-  font-size: 0.85rem;
-  letter-spacing: 0;
+[dir="rtl"] .lang-toggle-standalone {
+  font-family: var(--fa);
+  letter-spacing: 0.02em;
+  font-size: 13px;
 }

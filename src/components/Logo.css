@@ -1,33 +1,36 @@
-.logo {
-  display: inline-flex;
-  align-items: center;
+/* Logo / nav name — image-swap seam kept; now renders text + sienna dot */
+
+.nav__name {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  color: var(--ink);
   text-decoration: none;
+  cursor: pointer;
+  transition: color 300ms var(--ease);
   flex-shrink: 0;
 }
 
-.logo__text {
-  font-family: var(--font-heading);
-  font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--color-text-primary);
-  white-space: nowrap;
-  transition: color var(--transition-fast);
+[dir="rtl"] .nav__name {
+  font-family: var(--fa);
+  font-weight: 700;
 }
 
-.logo:hover .logo__text,
-.logo:focus-visible .logo__text {
-  color: var(--color-accent);
+.nav__name:hover,
+.nav__name:focus-visible {
+  color: var(--ink-soft);
 }
 
-/* If an image is used instead of text */
-.logo__img {
-  height: 40px;
+.nav__name .dot {
+  color: var(--sienna);
+}
+
+/* Image swap seam — if a logo image is ever preferred over text,
+   drop an <img class="nav__name-img"> inside the Link and show it. */
+.nav__name-img {
+  height: 36px;
   width: auto;
   object-fit: contain;
-}
-
-html[lang="fa"] .logo__text {
-  font-family: var(--font-persian);
-  letter-spacing: 0;
 }

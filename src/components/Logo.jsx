@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 import './Logo.css'
 
 export default function Logo() {
+  const { t } = useTranslation()
+  const name = `${t('name.first')} ${t('name.last')}`
   return (
-    <Link to="/" className="logo" aria-label="Nasrin Mashayekhi — Home">
-      <img src="/nasrin-mashayekhi/main-logo.png" alt="Nasrin Mashayekhi" className="logo__img" />
+    <Link to="/" className="nav__name" aria-label={`${name} — Home`}>
+      {name}<span className="dot">.</span>
     </Link>
   )
 }

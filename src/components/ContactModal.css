@@ -1,3 +1,7 @@
+/* ============================================================
+   Contact Modal — restyled with new design tokens
+   ============================================================ */
+
 .contact-modal {
   position: fixed;
   inset: 0;
@@ -19,8 +23,8 @@
 
 .contact-modal__panel {
   position: relative;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border-strong);
+  background: var(--paper-soft);
+  border: 1px solid var(--paper-edge);
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-modal);
   padding: var(--space-7) var(--space-7) var(--space-6);
@@ -41,9 +45,9 @@
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  background: var(--color-bg-surface);
-  border: 1px solid var(--color-border);
-  color: var(--color-text-secondary);
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  color: var(--ink-soft);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -51,8 +55,8 @@
 }
 
 .contact-modal__close:hover {
-  background: var(--color-accent-subtle);
-  color: var(--color-accent);
+  background: color-mix(in oklab, var(--sienna) 10%, transparent);
+  color: var(--sienna);
 }
 
 .contact-modal__close svg {
@@ -65,14 +69,15 @@
 }
 
 .contact-modal__title {
+  font-family: var(--serif);
   font-size: clamp(1.3rem, 3vw, 1.8rem);
   font-weight: 400;
-  color: var(--color-text-primary);
+  color: var(--ink);
   margin-bottom: var(--space-6);
 }
 
-html[lang="fa"] .contact-modal__title {
-  font-family: var(--font-persian);
+[dir="rtl"] .contact-modal__title {
+  font-family: var(--fa);
 }
 
 .contact-modal__items {
@@ -88,16 +93,17 @@ html[lang="fa"] .contact-modal__title {
 }
 
 .contact-modal__label {
-  font-size: 0.75rem;
+  font-size: 11px;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-text-muted);
+  letter-spacing: 0.22em;
+  color: var(--ink-faint);
 }
 
-html[lang="fa"] .contact-modal__label {
-  font-family: var(--font-persian);
+[dir="rtl"] .contact-modal__label {
+  font-family: var(--fa);
   text-transform: none;
-  letter-spacing: 0;
+  letter-spacing: 0.04em;
+  font-size: 13px;
 }
 
 .contact-modal__item--email {
@@ -107,7 +113,7 @@ html[lang="fa"] .contact-modal__label {
 
 .contact-modal__copied {
   font-size: 0.75rem;
-  color: var(--color-accent);
+  color: var(--sienna);
   animation: copiedFadeIn 0.2s ease both;
 }
 
@@ -117,18 +123,26 @@ html[lang="fa"] .contact-modal__label {
 }
 
 .contact-modal__email-link {
+  font-family: var(--serif);
   font-size: 0.95rem;
-  color: var(--color-accent);
+  color: var(--sienna);
   word-break: break-all;
   transition: color var(--transition-fast);
 }
 
 .contact-modal__email-link:hover {
-  color: var(--color-accent-hover);
+  color: var(--sienna-deep);
 }
 
 .contact-modal__cta {
   justify-content: center;
+  border-color: var(--paper-edge);
+  color: var(--ink-soft);
+}
+
+.contact-modal__cta:hover {
+  border-color: var(--sienna);
+  color: var(--sienna);
 }
 
 .contact-modal__whatsapp {

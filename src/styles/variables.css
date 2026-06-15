@@ -1,80 +1,44 @@
 /* ============================================================
-   CSS Custom Properties — all theming lives here.
-   Dark theme is the default (data-theme="dark" on <html>).
-   Light theme is applied via data-theme="light".
+   CSS Custom Properties — Editorial Gallery Design System
+   Light values in :root; dark overrides in [data-theme="dark"].
+   <html data-theme="dark"> is set in index.html so dark is
+   the default visual; theme persists in localStorage.
    ============================================================ */
 
-:root,
-[data-theme="dark"] {
-  /* Backgrounds */
-  --color-bg:           #1a1a1a;
-  --color-bg-surface:   #232323;
-  --color-bg-card:      #2a2a2a;
-  --color-bg-overlay:   rgba(0, 0, 0, 0.75);
-
-  /* Text */
-  --color-text-primary:   #f0ede8;
-  --color-text-secondary: #b8b0a6;
-  --color-text-muted:     #7a746e;
-
-  /* Accent — dusty rose */
-  --color-accent:         #c9a090;
-  --color-accent-hover:   #d8b4a2;
-  --color-accent-subtle:  rgba(201, 160, 144, 0.12);
-
-  /* Borders */
-  --color-border:         rgba(255, 255, 255, 0.08);
-  --color-border-strong:  rgba(255, 255, 255, 0.18);
-
-  /* Nav */
-  --color-nav-bg:         rgba(26, 26, 26, 0.95);
-
-  /* Shadows */
-  --shadow-card:    0 2px 16px rgba(0, 0, 0, 0.45);
-  --shadow-nav:     0 1px 24px rgba(0, 0, 0, 0.6);
-  --shadow-modal:   0 8px 60px rgba(0, 0, 0, 0.8);
-}
-
-[data-theme="light"] {
-  /* Backgrounds */
-  --color-bg:           #faf8f5;
-  --color-bg-surface:   #f2ede8;
-  --color-bg-card:      #ffffff;
-  --color-bg-overlay:   rgba(0, 0, 0, 0.55);
-
-  /* Text */
-  --color-text-primary:   #1e1b18;
-  --color-text-secondary: #5a5048;
-  --color-text-muted:     #9a9088;
-
-  /* Accent */
-  --color-accent:         #a06050;
-  --color-accent-hover:   #8a5040;
-  --color-accent-subtle:  rgba(160, 96, 80, 0.10);
-
-  /* Borders */
-  --color-border:         rgba(0, 0, 0, 0.08);
-  --color-border-strong:  rgba(0, 0, 0, 0.18);
-
-  /* Nav */
-  --color-nav-bg:         rgba(250, 248, 245, 0.95);
-
-  /* Shadows */
-  --shadow-card:    0 2px 12px rgba(0, 0, 0, 0.10);
-  --shadow-nav:     0 1px 16px rgba(0, 0, 0, 0.12);
-  --shadow-modal:   0 8px 48px rgba(0, 0, 0, 0.35);
-}
-
-/* ============================================================
-   Typography tokens
-   ============================================================ */
 :root {
-  --font-heading:  Arial, Helvetica, sans-serif;
-  --font-body:     Arial, Helvetica, sans-serif;
-  --font-persian:  'Yekan', 'Yekan Bakh', 'Tahoma', sans-serif;
-  --font-ui:       Arial, system-ui, sans-serif;
+  /* Watercolor Pigments — light palette */
+  --paper:       #F7F4EE;
+  --paper-soft:  #F1ECE2;
+  --paper-edge:  #E7E0D2;
+  --ink:         #1E1B18;
+  --ink-soft:    #5A534B;
+  --ink-faint:   #8B8278;
+  --sienna:      #B85C38;
+  --sienna-deep: #9E4A2B;
+  --sage:        #7B9E87;
+  --sage-deep:   #5E8169;
 
-  /* Spacing scale */
+  /* Type families */
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+  --fa:    'Vazirmatn', system-ui, sans-serif;
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --fade: 620ms;
+
+  /* Layout */
+  --masonry-cols: 3;
+  --hero-offset:  56px;
+  --hero-bleed:   40px;
+  --nav-height:   64px;
+
+  /* Shadows */
+  --shadow-rest:  0 1px 2px rgba(30, 27, 24, 0.04);
+  --shadow-lift:  0 26px 50px -22px rgba(30, 27, 24, 0.34), 0 4px 12px rgba(30, 27, 24, 0.07);
+  --shadow-modal: 0 8px 48px rgba(0, 0, 0, 0.35);
+
+  /* ── Utility / spacing ─────────────────────────────────── */
   --space-1:   4px;
   --space-2:   8px;
   --space-3:  12px;
@@ -86,21 +50,55 @@
   --space-9:  96px;
   --space-10: 128px;
 
-  /* Border radius */
-  --radius-sm:  4px;
-  --radius-md:  8px;
-  --radius-lg:  16px;
-  --radius-xl:  24px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 
-  /* Transitions */
-  --transition-fast:   0.15s ease;
-  --transition-base:   0.25s ease;
-  --transition-slow:   0.4s ease;
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.25s ease;
+  --transition-slow: 0.4s ease;
 
-  /* Nav height — used to offset sticky content */
-  --nav-height: 68px;
+  --max-width:       1280px;
+  --max-width-prose: 720px;
+}
 
-  /* Max content width */
-  --max-width:       1200px;
-  --max-width-prose:  720px;
+[data-theme="dark"] {
+  --paper:       #181614;
+  --paper-soft:  #211E1B;
+  --paper-edge:  #322D28;
+  --ink:         #EDE9E3;
+  --ink-soft:    #B4ADA2;
+  --ink-faint:   #837B70;
+  --sienna:      #C56B45;
+  --sienna-deep: #D67E58;
+  --sage:        #8DAE98;
+  --sage-deep:   #A2BFAC;
+  --shadow-rest:  0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-lift:  0 30px 60px -24px rgba(0, 0, 0, 0.66), 0 6px 16px rgba(0, 0, 0, 0.4);
+  --shadow-modal: 0 8px 60px rgba(0, 0, 0, 0.8);
+}
+
+/* ── Legacy alias tokens (kept for ContactModal + Lightbox) ── */
+:root {
+  --color-bg:            var(--paper);
+  --color-bg-surface:    var(--paper-soft);
+  --color-bg-card:       var(--paper-soft);
+  --color-bg-overlay:    rgba(0, 0, 0, 0.65);
+  --color-text-primary:  var(--ink);
+  --color-text-secondary:var(--ink-soft);
+  --color-text-muted:    var(--ink-faint);
+  --color-accent:        var(--sienna);
+  --color-accent-hover:  var(--sienna-deep);
+  --color-accent-subtle: color-mix(in oklab, var(--sienna) 12%, transparent);
+  --color-border:        color-mix(in oklab, var(--paper-edge) 60%, transparent);
+  --color-border-strong: var(--paper-edge);
+  --color-nav-bg:        color-mix(in oklab, var(--paper) 82%, transparent);
+  --shadow-card:         var(--shadow-rest);
+  --shadow-nav:          var(--shadow-rest);
+
+  --font-heading: var(--serif);
+  --font-body:    var(--sans);
+  --font-persian: var(--fa);
+  --font-ui:      var(--sans);
 }

@@ -8,29 +8,64 @@
     "toggleTheme": "Toggle theme",
     "toggleLanguage": "فارسی"
   },
+  "name": {
+    "first": "Nasrin",
+    "last": "Mashayekhi"
+  },
   "home": {
     "heroGreeting": "Hello, I'm Nasrin — a Watercolor Artist & Instructor",
     "heroParagraph1": "Watercolor is more than just a painting technique to me; it is a way of seeing the world with greater sensitivity, calmness, and creativity. Years of creating watercolor artworks and teaching this beautiful medium have shown me that learning to paint depends not only on talent, but also on proper guidance, purposeful practice, and enjoying the creative journey itself.",
     "heroParagraph2": "I believe that with the right instruction and dedication, anyone can develop their artistic abilities and discover the joy of working with the luminous colors and delicate beauty of watercolor. That is why I have designed my courses in a simple, practical, and step-by-step format, allowing students of all levels to build their skills with confidence.",
     "heroParagraph3": "My goal is not only to teach techniques, but also to help you nurture your creativity, strengthen your artistic confidence, and experience the satisfaction of creating artworks that reflect your unique vision of the world.",
     "bioHeading": "About Nasrin",
+    "bioDisplayHead": "Artist &\nInstructor",
     "bioName": "Nasrin Mashayekhi",
     "bioBirth": "Born in Tehran, 1984",
-    "bioParagraph": "As long as I remember, I loved to be an artist. My journey started 22 years ago in high school and I am still a student of art. Every day I try to experience something new, and I believe that",
+    "bioParagraph": "Nasrin Mashayekhi has loved painting for as long as she can remember. Her journey began more than two decades ago in high school, and she remains, at heart, a perpetual student of art.",
     "bioQuote": "\"Art is longing. You never arrive, but you keep going in the hope that you will.\"",
     "bioQuoteAuthor": "— Anselm Kiefer",
     "educationHeading": "Education",
     "edu1": "Bachelor of Art (Illustration), University of Karaj, 2012",
+    "edu1Year": "2012",
+    "edu1Title": "Bachelor of Art (Illustration)",
+    "edu1School": "University of Karaj",
     "edu2": "Master of Art (Visual Communications), University of Tehran, 2017",
+    "edu2Year": "2017",
+    "edu2Title": "Master of Art (Visual Communications)",
+    "edu2School": "University of Tehran",
     "activitiesHeading": "Art Activities",
+    "exhibitionsHeading": "Selected Exhibitions",
+    "exhibitionsCount": "2021 – 2022",
     "activity1": "2021 — Group Painting Exhibition, Davoodi Gallery, Tehran, Iran",
     "activity2": "2021 — Group Visual Art Exhibition, Entezami Gallery, Tehran, Iran",
-    "activity3": "2022 — 2nd Watercolorist Exhibition, Saba Art Gallery, Tehran, Iran"
+    "activity3": "2022 — 2nd Watercolorist Exhibition, Saba Art Gallery, Tehran, Iran",
+    "exhibit1Year": "2021",
+    "exhibit1Title": "Group Painting Exhibition",
+    "exhibit1Place": "Davoodi Gallery, Tehran",
+    "exhibit2Year": "2021",
+    "exhibit2Title": "Group Visual Art Exhibition",
+    "exhibit2Place": "Entezami Gallery, Tehran",
+    "exhibit3Year": "2022",
+    "exhibit3Title": "2nd Watercolorist Exhibition",
+    "exhibit3Place": "Saba Art Gallery, Tehran"
+  },
+  "hero": {
+    "role": "Watercolor Artist & Instructor",
+    "cta": "View the gallery",
+    "caption": "Pomegranates, 2024 — watercolor on cotton paper",
+    "index": "Selected works — 28",
+    "meta": {
+      "based": { "label": "Based in",      "value": "Tehran, Iran" },
+      "working": { "label": "Working since", "value": "2006" },
+      "medium": { "label": "Medium",        "value": "Watercolor on paper" }
+    }
   },
   "gallery": {
     "pageTitle": "Art Gallery",
+    "eyebrow": "The Work",
     "filterLabel": "Filter by category:",
     "allCategories": "All",
+    "all": "All",
     "prev": "Previous",
     "next": "Next",
     "pageOf": "{{current}} / {{total}}",
@@ -39,23 +74,39 @@
     "loading": "Loading gallery…"
   },
   "courses": {
-    "pageTitle": "Courses",
+    "pageTitle": "Online Courses",
+    "head": "Course",
+    "intro": "Self-paced courses, taught one student at a time, with personal critique on every painting.",
     "duration": "Duration",
     "price": "Price",
     "level": "Level",
     "enrollButton": "Contact to Enroll",
     "emailSubject": "Course Inquiry – {{title}}",
     "emailBody": "Hello, I am interested in enrolling in the {{title}} course. Please provide me with more information.",
+    "enrollPrefill": "Hello, I'm interested in enrolling in the \"{{title}}\" course. Could you share the details?",
     "contactHeading": "Get in Touch",
     "contactSubtext": "For inquiries, feel free to reach out",
     "generalEmailSubject": "General Inquiry",
     "generalEmailBody": "Hello,\n\nI would like to get in touch regarding your courses and services.\n\nThank you.",
     "loading": "Loading courses…",
-    "noCourses": "No courses available at the moment."
+    "noCourses": "No courses available at the moment.",
+    "labels": {
+      "level": "Level",
+      "bonus": "Bonus",
+      "access": "Access",
+      "support": "Support",
+      "enroll": "Enroll"
+    }
   },
   "footer": {
     "copyright": "© {{year}} Nasrin Mashayekhi. All rights reserved. Reproduction of artworks without written consent is strictly prohibited.",
-    "contact": "Contact"
+    "contact": "Contact",
+    "eyebrow": "Commissions & enrolment",
+    "links": {
+      "instagram": "Instagram",
+      "whatsapp": "WhatsApp",
+      "email": "Email"
+    }
   },
   "contact": {
     "title": "Get in Touch",

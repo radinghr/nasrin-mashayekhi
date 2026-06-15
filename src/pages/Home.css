@@ -1,133 +1,448 @@
 /* ============================================================
-   Home Page
+   Home Page — Hero, Bio, Facts, Exhibitions
    ============================================================ */
 
-/* ---- Hero ---------------------------------------------------- */
-.home-hero {
-  padding-block: var(--space-7) var(--space-6);
-  max-width: var(--max-width-prose);
+/* ---- HERO --------------------------------------------------- */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(24px, 5vw, 80px);
+  padding-block: 96px 60px;
+  position: relative;
 }
 
-.home-hero__greeting {
-  font-size: clamp(1.8rem, 4.5vw, 3rem);
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  color: var(--color-text-primary);
-  margin-bottom: var(--space-6);
-  line-height: 1.2;
+.hero__text {
+  position: relative;
+  z-index: 2;
 }
 
-html[lang="fa"] .home-hero__greeting {
-  font-family: var(--font-persian);
-  font-size: clamp(1.6rem, 4vw, 2.6rem);
+.hero__name {
+  font-size: clamp(54px, 8.4vw, 134px);
+  margin: 16px 0 0;
+  line-height: 0.98;
 }
 
-.home-hero__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-5);
-}
+.hero__name .ln { display: block; }
 
-.home-hero__text p {
-  font-size: clamp(1rem, 1.8vw, 1.15rem);
-  color: var(--color-text-secondary);
-  line-height: 1.85;
-  max-width: 68ch;
-}
-
-html[lang="fa"] .home-hero__text p {
-  font-family: var(--font-persian);
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-}
-
-/* ---- Bio ---------------------------------------------------- */
-.home-bio {
-  max-width: var(--max-width-prose);
-}
-
-.home-bio__header {
-  margin-bottom: var(--space-5);
-}
-
-.home-bio__name {
-  font-family: var(--font-heading);
-  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
-  font-weight: 400;
-  color: var(--color-text-primary);
-  letter-spacing: 0.04em;
-}
-
-html[lang="fa"] .home-bio__name {
-  font-family: var(--font-persian);
-  letter-spacing: 0;
-}
-
-.home-bio__birth {
-  font-size: 0.9rem;
-  color: var(--color-text-muted);
-  margin-top: var(--space-1);
-  letter-spacing: 0.04em;
-}
-
-html[lang="fa"] .home-bio__birth {
-  font-family: var(--font-persian);
-  letter-spacing: 0;
-}
-
-.home-bio__para {
-  font-size: clamp(1rem, 1.8vw, 1.1rem);
-  color: var(--color-text-secondary);
-  line-height: 1.85;
-  max-width: 68ch;
-}
-
-html[lang="fa"] .home-bio__para {
-  font-family: var(--font-persian);
-}
-
-.home-bio__quote {
+.hero__name .ln-2 {
   font-style: italic;
-  color: var(--color-accent);
-  font-size: 1.05em;
+  color: var(--sienna);
+  margin-inline-start: 0.06em;
 }
 
-/* ---- Education & Activities --------------------------------- */
-.home-education,
-.home-activities {
-  max-width: var(--max-width-prose);
+/* No italic in RTL — keep upright */
+.hero__name .ln-2--rtl {
+  font-style: normal;
 }
 
-.home-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-3);
-}
-
-.home-list__item {
-  display: flex;
-  align-items: baseline;
-  gap: var(--space-3);
-  font-size: clamp(0.95rem, 1.6vw, 1.05rem);
-  color: var(--color-text-secondary);
+.hero__tag {
+  margin-block-start: 30px;
+  max-width: 30ch;
+  font-size: clamp(16px, 1.3vw, 19px);
+  color: var(--ink-soft);
   line-height: 1.7;
 }
 
-html[lang="fa"] .home-list__item {
-  font-family: var(--font-persian);
+/* Meta trio */
+.hero__meta {
+  display: flex;
+  gap: 30px;
+  margin-block-start: 40px;
+  flex-wrap: wrap;
 }
 
-.home-list__dot {
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--color-accent);
+.hero__meta .k {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: block;
+  margin-block-end: 5px;
+}
+
+[dir="rtl"] .hero__meta .k {
+  letter-spacing: 0.04em;
+  font-size: 13px;
+}
+
+.hero__meta .v {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink);
+}
+
+[dir="rtl"] .hero__meta .v {
+  font-family: var(--fa);
+}
+
+/* CTA arrow */
+.hero__cta {
+  margin-block-start: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  padding: 0;
+  transition: color 300ms var(--ease);
+}
+
+[dir="rtl"] .hero__cta {
+  letter-spacing: 0.02em;
+  font-family: var(--fa);
+  font-size: 15px;
+}
+
+.hero__cta:hover { color: var(--sienna); }
+
+.arrow {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background: currentColor;
+  position: relative;
+  transition: width 360ms var(--ease);
   flex-shrink: 0;
-  margin-top: 0.55em;
 }
 
-/* ---- Responsive --------------------------------------------- */
-@media (max-width: 600px) {
-  .home-hero {
-    padding-block: var(--space-5) var(--space-4);
+.hero__cta:hover .arrow { width: 60px; }
+
+.arrow::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: -3px;
+  width: 7px;
+  height: 7px;
+  border-block-start: 1px solid currentColor;
+  border-inline-end: 1px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: center;
+}
+
+[dir="rtl"] .arrow::after {
+  transform: rotate(-45deg);
+}
+
+/* Artwork panel */
+.hero__art-wrap {
+  position: relative;
+  height: min(82vh, 760px);
+  justify-self: center;
+}
+
+.hero__art {
+  position: relative;
+  height: 100%;
+  aspect-ratio: 3 / 4.2;
+  transform: translateY(var(--hero-offset));
+  margin-inline-end: calc(var(--hero-bleed) * -1);
+  box-shadow: var(--shadow-lift);
+  overflow: hidden;
+}
+
+[dir="rtl"] .hero__art {
+  margin-inline-end: 0;
+  margin-inline-start: calc(var(--hero-bleed) * -1);
+}
+
+/* inset mount line */
+.hero__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  outline: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+  outline-offset: -14px;
+  pointer-events: none;
+}
+
+.hero__art-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Watercolor wash fallback when image is missing */
+.hero__art-img[src=""] {
+  display: none;
+}
+
+.hero__art-cap {
+  position: absolute;
+  inset-block-end: -34px;
+  inset-inline-start: 0;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+[dir="rtl"] .hero__art-cap {
+  letter-spacing: 0.02em;
+  font-size: 13px;
+}
+
+.hero__index {
+  position: absolute;
+  inset-block-start: 40%;
+  inset-inline-end: -8px;
+  writing-mode: vertical-rl;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+[dir="rtl"] .hero__index {
+  inset-inline-end: auto;
+  inset-inline-start: -8px;
+}
+
+/* ---- BIO ---------------------------------------------------- */
+.bio {
+  display: grid;
+  grid-template-columns: 0.9fr 1.4fr;
+  gap: clamp(30px, 7vw, 120px);
+}
+
+.bio__head .eyebrow { margin-block-end: 18px; }
+
+.bio__display {
+  font-size: clamp(34px, 4vw, 60px);
+  margin: 0;
+  white-space: pre-line;
+}
+
+.bio__body p {
+  margin: 0 0 1.3em;
+  color: var(--ink-soft);
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 62ch;
+}
+
+/* Drop-cap — Latin only */
+.bio__body p:first-child::first-letter {
+  font-family: var(--serif);
+  font-size: 3.6em;
+  float: inline-start;
+  line-height: 0.74;
+  margin-inline-end: 0.08em;
+  margin-block-start: 0.06em;
+  color: var(--sienna);
+  font-weight: 500;
+}
+
+[dir="rtl"] .bio__body p:first-child::first-letter {
+  font-family: inherit;
+  font-size: inherit;
+  float: none;
+  margin: 0;
+  color: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.bio__body p strong { color: var(--ink); font-weight: 600; }
+
+.bio__quote-block {
+  margin: 0 0 1.3em;
+  padding-inline-start: 22px;
+  border-inline-start: 2px solid var(--sienna);
+}
+
+.bio__quote {
+  font-style: italic;
+  color: var(--sienna);
+  font-family: var(--serif);
+  font-size: 19px;
+  line-height: 1.75;
+  margin: 0 0 0.5em;
+}
+
+[dir="rtl"] .bio__quote {
+  font-family: var(--fa);
+  font-style: normal;
+}
+
+.bio__quote-author {
+  font-size: 13px;
+  color: var(--ink-faint);
+  font-style: normal;
+  display: block;
+  letter-spacing: 0.1em;
+}
+
+[dir="rtl"] .bio__quote-author {
+  letter-spacing: 0;
+  font-family: var(--fa);
+  font-size: 14px;
+}
+
+/* ---- EDUCATION FACTS ---------------------------------------- */
+.facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-block-start: 1px solid var(--paper-edge);
+  margin-block-start: clamp(60px, 8vh, 110px);
+}
+
+.fact {
+  padding: 34px 0;
+  border-block-end: 1px solid var(--paper-edge);
+}
+
+.fact:nth-child(odd) {
+  padding-inline-end: 40px;
+  border-inline-end: 1px solid var(--paper-edge);
+}
+
+.fact:nth-child(even) {
+  padding-inline-start: 40px;
+}
+
+.fact .y {
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--sienna);
+}
+
+[dir="rtl"] .fact .y { font-family: var(--fa); }
+
+.fact .t {
+  font-size: 18px;
+  margin-block-start: 4px;
+  color: var(--ink);
+}
+
+.fact .s {
+  font-size: 14px;
+  color: var(--ink-faint);
+  margin-block-start: 3px;
+}
+
+/* ---- EXHIBITIONS -------------------------------------------- */
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  margin-block-end: 50px;
+  flex-wrap: wrap;
+}
+
+.section__head-title {
+  font-size: clamp(30px, 3.4vw, 50px);
+  margin: 10px 0 0;
+}
+
+.count {
+  font-size: 13px;
+  color: var(--ink-faint);
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+
+.exhibit {
+  border-block-start: 1px solid var(--paper-edge);
+}
+
+.exhibit__row {
+  display: grid;
+  grid-template-columns: 90px 1fr auto;
+  gap: 28px;
+  align-items: baseline;
+  padding: 26px 6px;
+  border-block-end: 1px solid var(--paper-edge);
+  transition: padding-inline 420ms var(--ease), background 420ms var(--ease);
+}
+
+.exhibit__row:hover {
+  background: var(--paper-soft);
+  padding-inline-start: 18px;
+}
+
+.exhibit__yr {
+  font-family: var(--serif);
+  color: var(--sienna);
+  font-size: 17px;
+}
+
+[dir="rtl"] .exhibit__yr { font-family: var(--fa); }
+
+.exhibit__ti {
+  font-size: 20px;
+  font-family: var(--serif);
+  color: var(--ink);
+}
+
+[dir="rtl"] .exhibit__ti { font-family: var(--fa); }
+
+.exhibit__pl {
+  color: var(--ink-faint);
+  font-size: 14px;
+  text-align: end;
+}
+
+/* ---- Responsive -------------------------------------------- */
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-block: 120px 80px;
+    gap: 30px;
+  }
+
+  .hero__art-wrap {
+    height: 60vh;
+    width: 100%;
+    order: -1;
+  }
+
+  .hero__art {
+    margin-inline: 0;
+    aspect-ratio: 4 / 5;
+    transform: none;
+  }
+
+  .hero__art-cap,
+  .hero__index { display: none; }
+
+  .bio {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .facts {
+    grid-template-columns: 1fr;
+  }
+
+  .fact:nth-child(odd) {
+    padding-inline-end: 0;
+    border-inline-end: none;
+  }
+
+  .fact:nth-child(even) {
+    padding-inline-start: 0;
+  }
+
+  .exhibit__row {
+    grid-template-columns: 72px 1fr;
+    grid-template-rows: auto auto;
+  }
+
+  .exhibit__pl {
+    grid-column: 2;
+    text-align: start;
   }
 }

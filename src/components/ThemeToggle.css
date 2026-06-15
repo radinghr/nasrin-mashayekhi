@@ -1,32 +1,24 @@
-.theme-toggle {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: var(--radius-md);
-  color: var(--color-text-secondary);
+/* Standalone theme toggle — only used if ThemeToggle is imported
+   directly. The Navbar now inlines the toggle as .toggle.theme-toggle */
+.theme-toggle-standalone {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: none;
+  border: 1px solid color-mix(in oklab, var(--paper-edge) 70%, transparent);
+  color: var(--ink-soft);
+  cursor: pointer;
   transition: color var(--transition-fast), background-color var(--transition-fast);
 }
 
-.theme-toggle:hover,
-.theme-toggle:focus-visible {
-  color: var(--color-accent);
-  background-color: var(--color-accent-subtle);
+.theme-toggle-standalone:hover {
+  color: var(--ink);
+  background: color-mix(in oklab, var(--sienna) 8%, transparent);
 }
 
-.theme-toggle__icon {
-  width: 18px;
-  height: 18px;
-  stroke: currentColor;
-  fill: none;
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Moon icon uses fill */
-.theme-toggle__icon path {
-  fill: currentColor;
-  stroke: none;
+.theme-toggle-standalone svg {
+  width: 16px;
+  height: 16px;
 }

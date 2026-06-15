@@ -1,4 +1,5 @@
 import { useEffect, useCallback, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
 import './Lightbox.css'
 
@@ -23,7 +24,7 @@ export default function Lightbox({ categorySlug, artworkSlug, artworks, lang, is
     let cancelled = false
     setMetaLoading(true)
     setArtworkMeta(null)
-    fetch(`${BASE}art-gallery/${categorySlug}/${current.slug}/metadata.json`)
+    fetch(`${BASE}art-gallery/${current.categorySlug || categorySlug}/${current.slug}/metadata.json`)
       .then((r) => r.json())
       .then((json) => { if (!cancelled) { setArtworkMeta(json); setMetaLoading(false) } })
       .catch(() => { if (!cancelled) { setArtworkMeta(null); setMetaLoading(false) } })
@@ -53,7 +54,8 @@ export default function Lightbox({ categorySlug, artworkSlug, artworks, lang, is
     if (e.target === e.currentTarget) onClose()
   }
 
-  const imageSrc = `${BASE}art-gallery/${categorySlug}/${current.slug}/image.jpg`
+  const catSlug = current.categorySlug || categorySlug
+  const imageSrc = `${BASE}art-gallery/${catSlug}/${current.slug}/image.jpg`
   const metaTitle = artworkMeta?.[lang]?.title || artworkMeta?.en?.title || null
   const metaBody  = artworkMeta?.[lang]?.body  || artworkMeta?.en?.body  || null
   const hasPanel  = current?.hasMetadata && (metaTitle || metaBody || metaLoading)
@@ -61,7 +63,7 @@ export default function Lightbox({ categorySlug, artworkSlug, artworks, lang, is
   const canPrev = currentIndex > 0
   const canNext = currentIndex < artworks.length - 1
 
-  return (
+  return createPortal(
     <div
       className="lightbox"
       role="dialog"
@@ -134,7 +136,8 @@ export default function Lightbox({ categorySlug, artworkSlug, artworks, lang, is
       <div className="lightbox__counter" aria-live="polite">
         {currentIndex + 1} / {artworks.length}
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
 

@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useManifest } from '../hooks/useManifest'
 import Lightbox from '../components/Lightbox'
@@ -8,21 +8,29 @@ const BASE = import.meta.env.BASE_URL
 const MANIFEST_URL = `${BASE}art-gallery-manifest.json`
 const IMAGES_PER_PAGE = 6
 
+const toFaDigits = (n) =>
+  String(n).replace(/[0-9]/g, (d) => '۰۱۲۳۴۵۶۷۸۹'[d])
+
+const fmtSize = (w, h, lang) =>
+  lang === 'fa'
+    ? `${toFaDigits(w)} × ${toFaDigits(h)} سانتی‌متر`
+    : `${w} × ${h} cm`
+
 export default function Gallery() {
   const { t, i18n } = useTranslation()
   const { data, loading, error } = useManifest(MANIFEST_URL)
   const lang = i18n.language?.slice(0, 2) || 'en'
   const isRTL = i18n.dir() === 'rtl'
 
-  const [activeCategories, setActiveCategories] = useState(null)
-  const [pages, setPages] = useState({})
+  const [activeCat, setActiveCat] = useState(null)
+  const [visibleCount, setVisibleCount] = useState(IMAGES_PER_PAGE)
   const [lightbox, setLightbox] = useState(null)
-  // categoryMeta: { [slug]: { en: { name }, fa: { name } } }
   const [categoryMeta, setCategoryMeta] = useState({})
+  const sentinelRef = useRef(null)
 
   const categories = data?.categories ?? []
 
-  // Fetch category metadata.json for each category
+  // Fetch category-level metadata.json for localized names
   useEffect(() => {
     if (!categories.length) return
     let cancelled = false
@@ -34,166 +42,169 @@ export default function Gallery() {
           if (!cancelled) setCategoryMeta((prev) => ({ ...prev, [cat.slug]: json }))
         })
         .catch(() => {
-          if (!cancelled) setCategoryMeta((prev) => ({ ...prev, [cat.slug]: { en: { name: cat.slug }, fa: { name: cat.slug } } }))
+          if (!cancelled) setCategoryMeta((prev) => ({
+            ...prev,
+            [cat.slug]: { en: { name: cat.slug }, fa: { name: cat.slug } }
+          }))
         })
     })
     return () => { cancelled = true }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [categories.length])
 
-  const visibleCategories = useMemo(() => {
-    if (!activeCategories || activeCategories.length === 0) return categories
-    return categories.filter((c) => activeCategories.includes(c.slug))
-  }, [categories, activeCategories])
-
   function getCategoryName(slug) {
     const meta = categoryMeta[slug]
     return meta?.[lang]?.name || meta?.en?.name || slug.replace(/-/g, ' ')
   }
 
-  function toggleCategory(slug) {
-    setActiveCategories((prev) => {
-      if (!prev) return [slug]
-      if (prev.includes(slug)) {
-        const next = prev.filter((n) => n !== slug)
-        return next.length === 0 ? null : next
-      }
-      return [...prev, slug]
-    })
-    setPages({})
+  // Flat list of all artworks with categorySlug stamped on each
+  const allArtworks = useMemo(() =>
+    categories.flatMap((cat) =>
+      cat.artworks.map((a) => ({ ...a, categorySlug: cat.slug }))
+    ),
+  [categories])
+
+  // Active view (filtered or all)
+  const activeArtworks = useMemo(() => {
+    if (!activeCat) return allArtworks
+    const cat = categories.find((c) => c.slug === activeCat)
+    return (cat?.artworks ?? []).map((a) => ({ ...a, categorySlug: cat.slug }))
+  }, [categories, activeCat, allArtworks])
+
+  const visibleArtworks = activeArtworks.slice(0, visibleCount)
+  const hasMore = visibleCount < activeArtworks.length
+
+  function selectAll() { setActiveCat(null); setVisibleCount(IMAGES_PER_PAGE) }
+  function selectCat(slug) { setActiveCat(slug); setVisibleCount(IMAGES_PER_PAGE) }
+
+  // Infinite scroll: load more when sentinel enters viewport
+  useEffect(() => {
+    const el = sentinelRef.current
+    if (!el) return
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && hasMore) {
+          setVisibleCount((prev) => prev + IMAGES_PER_PAGE)
+        }
+      },
+      { rootMargin: '300px' }
+    )
+    observer.observe(el)
+    return () => observer.disconnect()
+  }, [hasMore])
+
+  if (loading) {
+    return (
+      <main className="page gallery-page">
+        <div className="wrap gallery-loading">{t('gallery.loading')}</div>
+      </main>
+    )
   }
-
-  function selectAll() {
-    setActiveCategories(null)
-    setPages({})
+  if (error) {
+    return (
+      <main className="page gallery-page">
+        <div className="wrap gallery-error">{error}</div>
+      </main>
+    )
   }
-
-  function getPage(slug) { return pages[slug] ?? 0 }
-  function setPage(slug, page) { setPages((prev) => ({ ...prev, [slug]: page })) }
-
-  if (loading) return <main className="page gallery-page"><div className="container gallery-loading">{t('gallery.loading')}</div></main>
-  if (error)   return <main className="page gallery-page"><div className="container gallery-error">{error}</div></main>
-
-  const allSelected = !activeCategories
 
   return (
-    <main className="page gallery-page" id="main-content">
-      <div className="container">
-        <h1 className="gallery-title">{t('gallery.pageTitle')}</h1>
+    <main className="page gallery-page page-fade" id="main-content">
+      <div className="wrap">
 
-        {/* ---- Category filter bar ---- */}
+        {/* Header */}
+        <div className="gal-head">
+          <div className="eyebrow">{t('gallery.eyebrow')}</div>
+          <h1 className="display gal-head__title">{t('gallery.pageTitle')}</h1>
+        </div>
+
+        {/* Category filter — plain serif text labels, single active */}
         {categories.length > 1 && (
-          <div className="gallery-filter" role="group" aria-label={t('gallery.filterLabel')}>
-            <span className="gallery-filter__label">{t('gallery.filterLabel')}</span>
-            <div className="gallery-filter__buttons">
+          <div className="cats" role="group" aria-label={t('gallery.filterLabel')}>
+            <button
+              className={`cat ${!activeCat ? 'is-active' : ''}`}
+              onClick={selectAll}
+              aria-pressed={!activeCat}
+            >
+              {t('gallery.all')}
+              <sup className="n">{allArtworks.length}</sup>
+            </button>
+
+            {categories.map((cat) => (
               <button
-                className={`btn btn-ghost ${allSelected ? 'active' : ''}`}
-                onClick={selectAll}
-                aria-pressed={allSelected}
+                key={cat.slug}
+                className={`cat ${activeCat === cat.slug ? 'is-active' : ''}`}
+                onClick={() => selectCat(cat.slug)}
+                aria-pressed={activeCat === cat.slug}
               >
-                {t('gallery.allCategories')}
+                {getCategoryName(cat.slug)}
+                <sup className="n">{cat.artworks.length}</sup>
               </button>
-              {categories.map((cat) => {
-                const isActive = activeCategories?.includes(cat.slug)
-                return (
-                  <button
-                    key={cat.slug}
-                    className={`btn btn-ghost ${isActive ? 'active' : ''}`}
-                    onClick={() => toggleCategory(cat.slug)}
-                    aria-pressed={!!isActive}
-                  >
-                    {getCategoryName(cat.slug)}
-                  </button>
-                )
-              })}
-            </div>
+            ))}
           </div>
         )}
 
-        {/* ---- Category sections ---- */}
-        {visibleCategories.map((category) => {
-          const totalPages = Math.ceil(category.artworks.length / IMAGES_PER_PAGE)
-          const currentPage = getPage(category.slug)
-          const pageArtworks = category.artworks.slice(
-            currentPage * IMAGES_PER_PAGE,
-            currentPage * IMAGES_PER_PAGE + IMAGES_PER_PAGE
-          )
-          const categoryName = getCategoryName(category.slug)
+        {/* Masonry grid */}
+        {visibleArtworks.length === 0 ? (
+          <p className="gallery-empty">{t('gallery.noImages')}</p>
+        ) : (
+          <>
+            <div className="masonry">
+              {visibleArtworks.map((artwork) => {
+                const imgSrc = artwork.hasThumbnail
+                  ? `${BASE}art-gallery/${artwork.categorySlug}/${artwork.slug}/thumbnail.jpg`
+                  : `${BASE}art-gallery/${artwork.categorySlug}/${artwork.slug}/image.jpg`
 
-          return (
-            <section
-              key={category.slug}
-              className="gallery-category-card"
-              aria-labelledby={`cat-${category.slug}`}
-            >
-              <h2 id={`cat-${category.slug}`} className="section-heading gallery-category__heading">
-                {categoryName}
-              </h2>
+                const slugTitle = artwork.slug.replace(/-/g, ' ')
 
-              {category.artworks.length === 0 ? (
-                <p className="gallery-empty">{t('gallery.noImages')}</p>
-              ) : (
-                <>
-                  <div className="gallery-grid">
-                    {pageArtworks.map((artwork) => {
-                      const imgSrc = artwork.hasThumbnail
-                        ? `${BASE}art-gallery/${category.slug}/${artwork.slug}/thumbnail.jpg`
-                        : `${BASE}art-gallery/${category.slug}/${artwork.slug}/image.jpg`
-                      return (
-                        <button
-                          key={artwork.slug}
-                          className="gallery-card"
-                          onClick={() => setLightbox({
-                            categorySlug: category.slug,
-                            artworkSlug: artwork.slug,
-                            artworks: category.artworks,
-                          })}
-                          aria-label={`View ${artwork.slug.replace(/-/g, ' ')}`}
-                        >
-                          <img
-                            src={imgSrc}
-                            alt={artwork.slug.replace(/-/g, ' ')}
-                            loading="lazy"
-                            className="gallery-card__img"
-                          />
-                          <div className="gallery-card__overlay" aria-hidden="true">
-                            <ZoomIcon />
-                          </div>
-                        </button>
-                      )
+                return (
+                  <article
+                    key={`${artwork.categorySlug}-${artwork.slug}`}
+                    className="tile"
+                    onClick={() => setLightbox({
+                      categorySlug: artwork.categorySlug,
+                      artworkSlug: artwork.slug,
+                      artworks: activeArtworks,
                     })}
-                  </div>
-
-                  {totalPages > 1 && (
-                    <div className="gallery-pagination" aria-label={`Pagination for ${categoryName}`}>
-                      <button
-                        className="btn btn-ghost gallery-pagination__btn"
-                        onClick={() => setPage(category.slug, currentPage - 1)}
-                        disabled={currentPage === 0}
-                        aria-label={t('gallery.prev')}
-                      >
-                        <ChevronIcon dir="start" isRTL={isRTL} />
-                        {t('gallery.prev')}
-                      </button>
-                      <span className="gallery-pagination__info" aria-live="polite">
-                        {t('gallery.pageOf', { current: currentPage + 1, total: totalPages })}
-                      </span>
-                      <button
-                        className="btn btn-ghost gallery-pagination__btn"
-                        onClick={() => setPage(category.slug, currentPage + 1)}
-                        disabled={currentPage >= totalPages - 1}
-                        aria-label={t('gallery.next')}
-                      >
-                        {t('gallery.next')}
-                        <ChevronIcon dir="end" isRTL={isRTL} />
-                      </button>
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        setLightbox({
+                          categorySlug: artwork.categorySlug,
+                          artworkSlug: artwork.slug,
+                          artworks: activeArtworks,
+                        })
+                      }
+                    }}
+                    aria-label={`View ${slugTitle}`}
+                  >
+                    <div className="tile__frame">
+                      <img
+                        className="tile__img"
+                        loading="lazy"
+                        src={imgSrc}
+                        alt={slugTitle}
+                      />
                     </div>
-                  )}
-                </>
-              )}
-            </section>
-          )
-        })}
+                    <div className="tile__cap">
+                      <span className="tile__ti">{slugTitle}</span>
+                      {artwork.hasMetadata && (
+                        <TileMeta artwork={artwork} lang={lang} />
+                      )}
+                    </div>
+                  </article>
+                )
+              })}
+            </div>
+
+            {/* Infinite scroll sentinel */}
+            {hasMore && (
+              <div ref={sentinelRef} className="gallery-sentinel" aria-hidden="true" />
+            )}
+          </>
+        )}
+
       </div>
 
       {lightbox && (
@@ -210,30 +221,43 @@ export default function Gallery() {
   )
 }
 
-function ZoomIcon() {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="gallery-card__zoom">
-      <circle cx="11" cy="11" r="8" />
-      <line x1="21" y1="21" x2="16.65" y2="16.65" />
-      <line x1="11" y1="8" x2="11" y2="14" />
-      <line x1="8" y1="11" x2="14" y2="11" />
-    </svg>
-  )
-}
+/* Tile metadata line — only rendered when artwork.hasMetadata is true. */
+function TileMeta({ artwork, lang }) {
+  const [meta, setMeta] = useState(null)
 
-function ChevronIcon({ dir, isRTL }) {
-  // SVG points right by default (›)
-  // LTR start = ‹ (flip), LTR end = › (no flip)
-  // RTL start = › (no flip), RTL end = ‹ (flip)
-  const shouldFlip = (dir === 'start') !== isRTL
+  useEffect(() => {
+    let cancelled = false
+    fetch(`${BASE}art-gallery/${artwork.categorySlug}/${artwork.slug}/metadata.json`)
+      .then((r) => r.json())
+      .then((json) => { if (!cancelled) setMeta(json) })
+      .catch(() => {})
+    return () => { cancelled = true }
+  }, [artwork.categorySlug, artwork.slug])
+
+  if (!meta) return null
+
+  const loc = meta[lang] ?? meta.en ?? {}
+  const technique = loc.technique || null
+  const year = loc.year || null
+  const sizeW = loc.sizeW || null
+  const sizeH = loc.sizeH || null
+
+  const parts = [
+    technique,
+    sizeW && sizeH ? fmtSize(sizeW, sizeH, lang) : null,
+    year ? (lang === 'fa' ? toFaDigits(year) : year) : null,
+  ].filter(Boolean)
+
+  if (!parts.length) return null
+
   return (
-    <svg
-      viewBox="0 0 24 24"
-      aria-hidden="true"
-      className="gallery-pagination__chevron"
-      style={{ transform: shouldFlip ? 'scaleX(-1)' : 'none' }}
-    >
-      <polyline points="9 18 15 12 9 6" />
-    </svg>
+    <span className="tile__meta">
+      {parts.map((part, i) => (
+        <span key={i}>
+          {i > 0 && <span className="tile__dot" aria-hidden="true">·</span>}
+          {part}
+        </span>
+      ))}
+    </span>
   )
 }

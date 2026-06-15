@@ -3,14 +3,20 @@
     "course_title": "Watercolor Basics",
     "course_information": "A comprehensive beginner-friendly introduction to watercolor painting. You will learn the fundamentals of color mixing, brush techniques, wet-on-wet and wet-on-dry methods, and how to approach simple compositions with confidence. No prior painting experience required.",
     "duration": "18h",
-    "price": "180,000T",
-    "level": "Beginner Friendly"
+    "price": "On request",
+    "level": "Beginner Friendly",
+    "bonus": "A separate video guiding you through purchasing the right tools.",
+    "access": "All videos are available to download directly from the website.",
+    "support": "Critique and troubleshooting of your paintings sent via voice messages on WhatsApp."
   },
   "fa": {
     "course_title": "مبانی آبرنگ",
     "course_information": "یک مقدمه جامع و مناسب برای مبتدیان در زمینه نقاشی آبرنگ. در این دوره مبانی ترکیب رنگ، تکنیک‌های قلم‌مو، روش‌های تر روی تر و تر روی خشک و نحوه رویکرد به ترکیب‌بندی‌های ساده با اطمینان را خواهید آموخت. هیچ تجربه قبلی در نقاشی لازم نیست.",
     "duration": "۱۸ ساعت",
-    "price": "۱۸۰،۰۰۰ تومان",
-    "level": "مناسب مبتدیان"
+    "price": "بنا به درخواست",
+    "level": "مناسب مبتدیان",
+    "bonus": "ویدئویی جداگانه برای راهنمایی خرید ابزار مناسب.",
+    "access": "همهٔ ویدئوها برای دانلود مستقیم از وب‌سایت در دسترس هستند.",
+    "support": "نقد و رفع اشکال نقاشی‌های شما از طریق پیام صوتی در واتساپ."
   }
 }

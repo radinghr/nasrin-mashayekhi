@@ -117,7 +117,7 @@ public/art-gallery/
        "course_title": "Portrait Watercolor",
        "course_information": "Description…",
        "duration": "20h",
-       "price": "200,000T",
+       "price": "On request",
        "level": "Intermediate"
      },
      "fa": {
@@ -193,7 +193,7 @@ src/
   context/
     ContactContext.jsx          ← ContactProvider + useContact() hook
   components/
-    Navbar.jsx / .css           ← fixed header, mobile hamburger, About Me, Contact Me
+    Navbar.jsx / .css           ← fixed header, mobile hamburger, Home / Gallery / Courses links
     ContactModal.jsx / .css     ← Portal modal: email, phone, WhatsApp
     Footer.jsx / .css
     Lightbox.jsx / .css         ← Instagram-style: image + metadata panel + prev/next
@@ -202,7 +202,7 @@ src/
     LanguageToggle.jsx / .css
   pages/
     Home.jsx / .css             ← hero, bio (#about anchor), education, activities
-    Gallery.jsx / .css          ← category cards, pagination, lightbox
+    Gallery.jsx / .css          ← category cards, infinite scroll (6 at a time), lightbox
     Courses.jsx / .css          ← course cards, enroll mailto
   locales/
     en/translation.json

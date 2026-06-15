@@ -1,42 +1,54 @@
 /* ============================================================
-   Global stylesheet — imports variables, Google Fonts, resets,
-   and base element styles.
+   Global stylesheet — resets, base elements, layout helpers,
+   utility classes, and the page-fade animation.
    ============================================================ */
 
 @import './variables.css';
 
-/* ---- Persian webfont (Yekan) ------------------------------- */
-@import url('https://cdn.jsdelivr.net/gh/DediData/Yekan-Font@3.0/Yekan.css');
+/* ---- Persian webfont (Vazirmatn loaded via Google Fonts in index.html) */
+/* Yekan CDN import removed; Vazirmatn is now the Persian font */
 
 /* ---- Reset --------------------------------------------------- */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--color-bg);
-  color: var(--color-text-primary);
-  font-family: var(--font-body);
-  font-size: 18px;
-  line-height: 1.75;
-  min-height: 100vh;
-  transition: background-color var(--transition-base), color var(--transition-base);
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  font-weight: 400;
+  overflow-x: hidden;
+  transition: background 600ms var(--ease), color 600ms var(--ease);
 }
 
-/* Persian / RTL font override */
-html[lang="fa"] body,
-.rtl body,
-html[dir="rtl"] body {
-  font-family: var(--font-persian);
+[dir="rtl"] body { font-family: var(--fa); }
+
+[dir="rtl"] { letter-spacing: 0 !important; }
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] .display,
+[dir="rtl"] .serif {
+  font-family: var(--fa);
+  font-weight: 700;
+}
+
+::selection {
+  background: color-mix(in oklab, var(--sienna) 26%, transparent);
 }
 
 img {
@@ -46,14 +58,8 @@ img {
 }
 
 a {
-  color: var(--color-accent);
+  color: inherit;
   text-decoration: none;
-  transition: color var(--transition-fast);
-}
-
-a:hover,
-a:focus-visible {
-  color: var(--color-accent-hover);
 }
 
 button {
@@ -66,89 +72,130 @@ button {
 
 ul {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-/* ---- Utility ------------------------------------------------- */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
+/* ---- Typography helpers -------------------------------------- */
+.serif {
+  font-family: var(--serif);
+}
+
+.display {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 0.98;
+  letter-spacing: -0.015em;
+}
+
+.eyebrow {
+  font-size: 11.5px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--sienna);
+  font-weight: 500;
+}
+
+[dir="rtl"] .eyebrow {
+  letter-spacing: 0.08em;
+  font-family: var(--fa);
+  font-size: 13px;
+}
+
+/* ---- Layout helpers ------------------------------------------ */
+.wrap {
+  width: min(1280px, 92vw);
+  margin-inline: auto;
+}
+
+.wrap-wide {
+  width: min(1480px, 94vw);
+  margin-inline: auto;
 }
 
 .container {
-  width: 100%;
-  max-width: var(--max-width);
+  width: min(1280px, 92vw);
   margin-inline: auto;
   padding-inline: var(--space-5);
 }
 
-/* ---- Page wrapper -------------------------------------------- */
-.page {
-  min-height: calc(100vh - var(--nav-height));
-  padding-top: calc(var(--nav-height) + var(--space-7));
-  padding-bottom: var(--space-10);
-  animation: fadeInPage var(--transition-slow) ease both;
+.rule {
+  height: 1px;
+  background: var(--paper-edge);
+  border: 0;
 }
 
-@keyframes fadeInPage {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
+/* ---- Watercolor wash placeholder (fallback only) ------------ */
+.wc {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: color-mix(in oklab, var(--paper-soft) 80%, var(--sage) 20%);
+}
+
+.wc__grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+[data-theme="dark"] .wc__grain {
+  mix-blend-mode: screen;
+  opacity: 0.16;
+}
+
+.wc__edge {
+  position: absolute;
+  inset: 0;
+  box-shadow:
+    inset 0 0 0 1px color-mix(in oklab, var(--ink) 7%, transparent),
+    inset 0 -40px 60px -40px color-mix(in oklab, var(--ink) 8%, transparent);
+  pointer-events: none;
+}
+
+/* ---- App shell ----------------------------------------------- */
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ---- Page wrapper -------------------------------------------- */
+.page {
+  padding-block-start: var(--nav-height);
+  flex: 1;
+}
+
+.page-fade {
+  animation: pageRise var(--fade) var(--ease) both;
+}
+
+@keyframes pageRise {
+  from { opacity: 0.55; transform: translateY(12px); }
+  to   { opacity: 1;    transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-fade { animation: none; }
 }
 
 /* ---- Headings ------------------------------------------------ */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading);
+  font-family: var(--serif);
   font-weight: 400;
-  line-height: 1.25;
-  color: var(--color-text-primary);
+  line-height: 1.15;
+  color: var(--ink);
 }
 
-html[lang="fa"] h1,
-html[lang="fa"] h2,
-html[lang="fa"] h3,
-html[lang="fa"] h4 {
-  font-family: var(--font-persian);
-}
-
-h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
-h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
-h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
-
-/* ---- Section spacing ----------------------------------------- */
+/* ---- Sections ------------------------------------------------ */
 .section {
-  margin-bottom: var(--space-9);
+  padding-block: clamp(80px, 11vh, 150px);
 }
 
-.section-heading {
-  font-size: clamp(1.4rem, 3vw, 2rem);
-  font-weight: 400;
-  letter-spacing: 0.04em;
-  color: var(--color-text-secondary);
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-3);
-  border-bottom: 1px solid var(--color-border);
-  text-transform: uppercase;
-}
-
-/* ---- Card base ----------------------------------------------- */
-.card {
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-card);
-  overflow: hidden;
-  transition: transform var(--transition-base), box-shadow var(--transition-base);
-}
-
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card), 0 6px 24px rgba(0,0,0,0.2);
-}
-
-/* ---- Buttons ------------------------------------------------- */
+/* ---- Buttons (global base) ----------------------------------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -166,82 +213,117 @@ h3 { font-size: clamp(1.2rem, 2.5vw, 1.8rem); }
 }
 
 .btn:focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--sienna);
   outline-offset: 3px;
 }
 
 .btn-primary {
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--sienna);
+  color: var(--paper);
   border: 1px solid transparent;
 }
 
 .btn-primary:hover {
-  background: var(--color-accent-hover);
-  color: #fff;
+  background: var(--sienna-deep);
+  color: var(--paper);
   transform: translateY(-1px);
 }
 
 .btn-outline {
   background: transparent;
-  color: var(--color-accent);
-  border: 1px solid var(--color-accent);
+  color: var(--sienna);
+  border: 1px solid var(--sienna);
 }
 
 .btn-outline:hover {
-  background: var(--color-accent-subtle);
-  color: var(--color-accent-hover);
-  border-color: var(--color-accent-hover);
+  background: color-mix(in oklab, var(--sienna) 10%, transparent);
+  color: var(--sienna-deep);
+  border-color: var(--sienna-deep);
 }
 
 .btn-ghost {
   background: transparent;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
+  color: var(--ink-soft);
+  border: 1px solid var(--paper-edge);
   padding: var(--space-2) var(--space-4);
   font-size: 0.875rem;
 }
 
 .btn-ghost:hover {
-  background: var(--color-accent-subtle);
-  color: var(--color-text-primary);
-  border-color: var(--color-border-strong);
+  background: color-mix(in oklab, var(--sienna) 8%, transparent);
+  color: var(--ink);
+  border-color: var(--sienna);
 }
 
 .btn-ghost.active {
-  background: var(--color-accent-subtle);
-  color: var(--color-accent);
-  border-color: var(--color-accent);
+  background: color-mix(in oklab, var(--sienna) 10%, transparent);
+  color: var(--sienna);
+  border-color: var(--sienna);
+}
+
+/* Editorial outlined button (Enroll) */
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-family: var(--sans);
+  cursor: pointer;
+  padding: 14px 28px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  background: none;
+  transition: background var(--transition-base) var(--ease),
+              color var(--transition-base) var(--ease);
+}
+
+.btn-line:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+[dir="rtl"] .btn-line {
+  letter-spacing: 0.02em;
+  font-family: var(--fa);
+  font-size: 14px;
 }
 
 /* ---- Focus ring ---------------------------------------------- */
 :focus-visible {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--sienna);
   outline-offset: 2px;
 }
 
 /* ---- Divider ------------------------------------------------- */
 .divider {
   border: none;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--paper-edge);
   margin: var(--space-7) 0;
 }
 
-/* ---- RTL layout adjustments ---------------------------------- */
+/* ---- Accessibility ------------------------------------------ */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---- RTL helper ---------------------------------------------- */
 html[dir="rtl"] .rtl-flip {
   transform: scaleX(-1);
 }
 
-/* ============================================================
-   Scrollbar styling (Chromium)
-   ============================================================ */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-bg);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-text-muted);
-  border-radius: 3px;
+/* ---- Scrollbar (Chromium) ------------------------------------ */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb { background: var(--ink-faint); border-radius: 3px; }
+
+/* ---- Reduced motion ------------------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  * { transition-duration: 0.001ms !important; }
 }

@@ -1,5 +1,5 @@
 /* ============================================================
-   Lightbox — Instagram-style: image left, metadata right
+   Lightbox — image left, metadata right; updated to new tokens
    ============================================================ */
 
 .lightbox {
@@ -93,7 +93,7 @@
 .lightbox__meta {
   width: 280px;
   flex-shrink: 0;
-  background: var(--color-bg-card);
+  background: var(--paper-soft);
   padding: var(--space-7) var(--space-5);
   display: flex;
   flex-direction: column;
@@ -102,32 +102,32 @@
 }
 
 .lightbox__meta-title {
-  font-family: var(--font-heading);
+  font-family: var(--serif);
   font-size: clamp(1.1rem, 2vw, 1.4rem);
   font-weight: 400;
-  color: var(--color-text-primary);
+  color: var(--ink);
   line-height: 1.3;
 }
 
-html[lang="fa"] .lightbox__meta-title {
-  font-family: var(--font-persian);
+[dir="rtl"] .lightbox__meta-title {
+  font-family: var(--fa);
 }
 
 .lightbox__meta-body {
   font-size: 0.95rem;
-  color: var(--color-text-secondary);
+  color: var(--ink-soft);
   line-height: 1.75;
 }
 
-html[lang="fa"] .lightbox__meta-body {
-  font-family: var(--font-persian);
+[dir="rtl"] .lightbox__meta-body {
+  font-family: var(--fa);
 }
 
 .lightbox__meta-loading {
   width: 100%;
   height: 12px;
   border-radius: 6px;
-  background: var(--color-bg-surface);
+  background: var(--paper-edge);
   animation: shimmer 1.4s ease infinite;
 }
 
@@ -158,13 +158,8 @@ html[lang="fa"] .lightbox__meta-body {
   background: rgba(255, 255, 255, 0.22);
 }
 
-.lightbox__nav--prev {
-  inset-inline-start: var(--space-4);
-}
-
-.lightbox__nav--next {
-  inset-inline-end: var(--space-4);
-}
+.lightbox__nav--prev { inset-inline-start: var(--space-4); }
+.lightbox__nav--next { inset-inline-end:   var(--space-4); }
 
 .lightbox__nav-icon {
   width: 22px;
@@ -188,7 +183,7 @@ html[lang="fa"] .lightbox__meta-body {
   pointer-events: none;
 }
 
-/* ---- Mobile: stack vertically ------------------------------ */
+/* ---- Mobile ------------------------------------------------- */
 @media (max-width: 768px) {
   .lightbox {
     padding: var(--space-3);
@@ -205,15 +200,8 @@ html[lang="fa"] .lightbox__meta-body {
     margin-bottom: var(--space-9);
   }
 
-  .lightbox__img-wrap {
-    width: 100%;
-  }
-
-  .lightbox__img {
-    max-height: 60vh;
-    width: 100%;
-    object-fit: contain;
-  }
+  .lightbox__img-wrap { width: 100%; }
+  .lightbox__img { max-height: 60vh; width: 100%; object-fit: contain; }
 
   .lightbox__meta {
     width: 100%;
@@ -231,13 +219,9 @@ html[lang="fa"] .lightbox__meta-body {
   }
 }
 
-/* ---- RTL: mirror layout ------------------------------------ */
-html[dir="rtl"] .lightbox__content {
-  flex-direction: row-reverse;
-}
+/* ---- RTL layout -------------------------------------------- */
+html[dir="rtl"] .lightbox__content { flex-direction: row-reverse; }
 
 @media (max-width: 768px) {
-  html[dir="rtl"] .lightbox__content {
-    flex-direction: column;
-  }
+  html[dir="rtl"] .lightbox__content { flex-direction: column; }
 }

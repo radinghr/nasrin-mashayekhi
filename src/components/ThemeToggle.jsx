@@ -7,30 +7,29 @@ export default function ThemeToggle({ theme, onToggle }) {
 
   return (
     <button
-      className="theme-toggle"
+      className="theme-toggle-standalone"
       onClick={onToggle}
       aria-label={t('nav.toggleTheme')}
       title={t('nav.toggleTheme')}
     >
-      {isDark ? (
-        /* Sun icon — switch to light */
-        <svg className="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
-          <circle cx="12" cy="12" r="5" />
-          <line x1="12" y1="1"  x2="12" y2="3"  />
-          <line x1="12" y1="21" x2="12" y2="23" />
-          <line x1="4.22" y1="4.22"  x2="5.64" y2="5.64"  />
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-          <line x1="1"  y1="12" x2="3"  y2="12" />
-          <line x1="21" y1="12" x2="23" y2="12" />
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-          <line x1="18.36" y1="5.64"  x2="19.78" y2="4.22"  />
-        </svg>
-      ) : (
-        /* Moon icon — switch to dark */
-        <svg className="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true">
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </svg>
-      )}
+      {isDark ? <SunIcon /> : <MoonIcon />}
     </button>
+  )
+}
+
+function SunIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <circle cx="12" cy="12" r="4.2" />
+      <path d="M12 2.5v2.4M12 19.1v2.4M21.5 12h-2.4M4.9 12H2.5M18.4 5.6l-1.7 1.7M7.3 16.7l-1.7 1.7M18.4 18.4l-1.7-1.7M7.3 7.3 5.6 5.6" strokeLinecap="round" />
+    </svg>
+  )
+}
+
+function MoonIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
+      <path d="M20 13.2A7.6 7.6 0 1 1 10.8 4 6 6 0 0 0 20 13.2Z" strokeLinejoin="round" />
+    </svg>
   )
 }

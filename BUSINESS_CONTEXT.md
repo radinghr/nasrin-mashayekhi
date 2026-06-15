@@ -31,7 +31,7 @@ The site serves two primary functions:
 
 1. **Online portfolio** — Showcase watercolor artworks organized by category (landscapes, street scenes, florals, animals, etc.) for potential buyers, galleries, and collaborators.
 
-2. **Course catalog** — Advertise structured watercolor courses (beginner to advanced) and enable prospective students to contact Nasrin to enroll.
+2. **Course catalog** — Advertise structured watercolor online courses (beginner to advanced) and enable prospective students to contact Nasrin to enroll.
 
 The primary conversion action is **contact** — the site does not have e-commerce or online payment. Students contact Nasrin directly via phone, email, or WhatsApp to discuss course details and enrollment.
 
@@ -61,12 +61,14 @@ Managed via `public/contact.json`. Current values:
 
 ## Current Courses
 
+The Courses page is titled **"Online Courses"** with the subtitle: *"Self-paced courses, taught one student at a time, with personal critique on every painting."*
+
 | Slug | Title (EN) | Title (FA) | Duration | Price | Level |
 |---|---|---|---|---|---|
-| `watercolor-basics` | Watercolor Basics | مبانی آبرنگ | 18h | 180,000T | Beginner Friendly |
-| `advanced-watercolor` | Advanced Watercolor Techniques | تکنیک‌های پیشرفته آبرنگ | 24h | 240,000T | Intermediate+ |
+| `watercolor-basics` | Watercolor Basics | مبانی آبرنگ | 18h | On request | Beginner Friendly |
+| `advanced-watercolor` | Advanced Watercolor Techniques | تکنیک‌های پیشرفته آبرنگ | 24h | On request | Intermediate+ |
 
-Prices are in Iranian Toman (T). The site does not handle payment — contact only.
+Prices are not listed publicly — enrollment inquiries are sent via WhatsApp. The `price` field in `course-info.json` currently reads "On request" / "بنا به درخواست".
 
 ---
 
@@ -81,7 +83,7 @@ Prices are in Iranian Toman (T). The site does not handle payment — contact on
 | `still-life` | Still Life | طبیعت بی‌جان | 4 |
 | `street-scenes` | Street Scenes | صحنه‌های خیابانی | 30 |
 
-Total: 66 artworks. None currently have per-artwork metadata (titles/descriptions) — that is supported by the system and can be added later by dropping `metadata.json` files into artwork folders.
+Total: 66 artworks. The gallery uses **infinite scroll** — the first 6 images load immediately, and additional images load as the user scrolls down (6 at a time via IntersectionObserver). None currently have per-artwork metadata (titles/descriptions) — that is supported by the system and can be added later by dropping `metadata.json` files into artwork folders.
 
 ---
 
@@ -98,7 +100,7 @@ Total: 66 artworks. None currently have per-artwork metadata (titles/description
 
 1. **No hardcoded contact details in code.** All contact info lives in `public/contact.json`. If Nasrin changes her phone number, only that file changes.
 
-2. **No online payments.** The enroll button opens a pre-filled email to Nasrin. Enrollment is handled offline.
+2. **No online payments.** The enroll button opens a pre-filled WhatsApp message to Nasrin. Enrollment is handled offline.
 
 3. **Bilingual parity.** Every visible piece of text must exist in both `en/translation.json` and `fa/translation.json`. Never add English-only content.
 
@@ -107,6 +109,14 @@ Total: 66 artworks. None currently have per-artwork metadata (titles/description
 5. **Course addition = no-code change.** Same pattern — drop files in `public/courses/` and regenerate.
 
 6. **RTL-safe layout.** All new UI must use `inset-inline-start/end` (not `left/right`), `margin-inline-start/end`, etc. Test every new component in Persian/RTL mode before shipping.
+
+---
+
+## Navigation
+
+The main navbar contains three links: **Home**, **Gallery**, **Courses**. About Me and Contact Me were removed from the nav — the About section remains reachable via the `/#about` direct URL, and contact is available via the footer.
+
+The **Logo** is bilingual: in English it displays "Nasrin Mashayekhi.", in Persian it displays "نسرین مشایخی." (driven by i18n translation keys `name.first` and `name.last`).
 
 ---
 
