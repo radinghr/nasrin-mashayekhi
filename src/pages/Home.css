@@ -147,6 +147,7 @@
   margin-inline-end: calc(var(--hero-bleed) * -1);
   box-shadow: var(--shadow-lift);
   overflow: hidden;
+  border-radius: var(--radius-img);
 }
 
 [dir="rtl"] .hero__art {

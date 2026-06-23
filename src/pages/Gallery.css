@@ -109,6 +109,7 @@
 .tile__frame {
   position: relative;
   overflow: hidden;
+  border-radius: var(--radius-img);
   box-shadow: var(--shadow-rest);
   transition: box-shadow 460ms var(--ease);
 }

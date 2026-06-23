@@ -76,6 +76,7 @@
   position: relative;
   width: 100%;
   height: clamp(320px, 32vw, 520px);
+  border-radius: var(--radius-img);
   box-shadow: var(--shadow-lift);
   overflow: hidden;
   background: var(--paper-soft);

@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
-import heroImg from '../assets/hero.png'
+import heroImg from '../assets/home-photo.png'
 import './Home.css'
 
 export default function Home() {
@@ -69,8 +69,6 @@ export default function Home() {
               alt={t('hero.caption')}
             />
           </div>
-          {/* Caption + index — SAMPLE, replace in translation files */}
-          <div className="hero__art-cap">{t('hero.caption')}</div>
           <div className="hero__index">{t('hero.index')}</div>
         </div>
       </header>

@@ -55,6 +55,8 @@
   --radius-lg: 16px;
   --radius-xl: 24px;
 
+  --radius-img: var(--radius-md); /* shared radius for all artwork/course/gallery images */
+
   --transition-fast: 0.15s ease;
   --transition-base: 0.25s ease;
   --transition-slow: 0.4s ease;
